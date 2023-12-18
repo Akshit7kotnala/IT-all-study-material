@@ -1,0 +1,176 @@
+#include<iostream>
+#define max 20
+using namespace std;
+
+// Class representing a graph
+class Graph {
+    int g[max][max], n, c[max], ch[max];
+    char v[max], str[max][max], min_path[max];
+
+public:
+    // Constructor to initialize the graph with the given number of landmarks
+    Graph(int m) : n(m) {
+        // Initialize the adjacency matrix with zeros
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                g[i][j] = 0;
+    }
+
+    // Function to accept names of landmarks
+    void acceptVertices() {
+        cout << "\n\t\t\tNames Of Landmarks";
+        for (int i = 0; i < n; i++) {
+            cout << "\nEnter Name of Landmark [" << i + 1 << "] : ";
+            cin >> v[i];
+        }
+        cout << "\n";
+    }
+
+    // Function to accept distances between landmarks
+    void acceptEdges() {
+        char v1, v2;
+        int i, j, cst;
+        for (i = 0; i < n; i++)
+            for (j = i; j < n; j++) {
+                if (i == j) {
+                    // Distance from a landmark to itself is always 0
+                    g[i][j] = 0;
+                    continue;
+                } else
+                    cout << "\n\tDistance Between Landmark [" << v[i] << "][" << v[j] << "] : ";
+                cin >> cst;
+                // Assign the entered distance to both symmetric positions in the matrix
+                g[i][j] = g[j][i] = cst;
+            }
+        cout << "\n";
+    }
+
+    // Function to display the adjacency matrix
+    void display() {
+        int i, j;
+        i = 0;
+        cout << "\n";
+        // Display column headers (landmark names)
+        while (i < n) {
+            cout << "\t" << v[i];
+            i++;
+        }
+        // Display the adjacency matrix
+        for (i = 0; i < n; i++) {
+            cout << "\n" << v[i];
+            for (j = 0; j < n; j++)
+                cout << "\t" << g[i][j];
+        }
+        cout << "\n";
+    }
+
+    // Dijkstra's algorithm initialization
+    void dijkstra(char source, char destination, int f) {
+        int i, j, l, k, flag, min = 999, cst = 0;
+        // Find the index corresponding to the source landmark
+        i = 0;
+        while (v[i] != source)
+            i++;
+        // Initialize the cost array with large values
+        fill_n(c, max, 9999);
+        // Initialize the path matrix with dashes
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                str[i][j] = '-';
+        // Set the initial cost for the source landmark to 0
+        c[i] = 0;
+        // Initialize the path matrix with the source landmark
+        k = 0;
+        str[i][k] = v[i];
+
+        // Dijkstra's algorithm
+        do {
+            ch[i] = 1;
+            min = 999;
+            for (j = 0; j < n; j++) {
+                flag = 0;
+                cst = c[i] + g[i][j];
+                if (g[i][j] != 0 && i != j && cst < c[j]) {
+                    k = 0;
+                    c[j] = cst;
+                    for (k = 0; flag == 0; k++) {
+                        str[j][k] = str[i][k];
+                        if (str[i][k] == '-')
+                            flag = 1;
+                    }
+                    str[j][k] = v[j];
+                }
+            }
+            for (l = 0; l < n; l++) {
+                if (c[l] <= min && ch[l] == 0) {
+                    min = c[l];
+                    i = l;
+                }
+            }
+        } while (v[i] != destination);
+
+        // Output the result
+        j = 0;
+        if (f == 0) {
+            cout << "Minimum Distance : " << c[i] << "\nShortest Path : ";
+        }
+        while (str[i][j] != '-') {
+            if (f == 0) {
+                min_path[j] = str[i][j];
+            }
+            if (f == 0) {
+                cout << " " << str[i][j];
+            }
+            j++;
+        }
+        min_path[j] = '\0';
+        cout << "\n";
+    }
+};
+
+// Main function
+int main() {
+    int n, ch;
+    char v2;
+    // Get the number of landmarks from the user
+    cout << "\nEnter Number of Landmarks : ";
+    cin >> n;
+    // Create a graph object with the given number of landmarks
+    Graph g(n);
+
+    // Menu-driven loop for various operations
+    do {
+        cout << "\n1.Accept Names Of Landmarks.\n2.Accept Distance Between Landmarks."
+             << "\n3.Display Adjacency Matrix.\n4.Display Shortest Distance.\n5.Exit.";
+        cout << "\nEnter Your Choice: ";
+        cin >> ch;
+        switch (ch) {
+            case 1:
+                g.acceptVertices();
+                break;
+            case 2:
+                g.acceptEdges();
+                break;
+            case 3:
+                g.display();
+                break;
+            case 4:
+                // Get the source and destination landmarks for Dijkstra's algorithm
+                cout << "\nEnter Source(Name Of Landmark From Where You Want To Start) : ";
+                char v1;
+                cin >> v1;
+                cout << "\nEnter Destination(Name Of Landmark Where You Want To Reach) : ";
+                cin >> v2;
+                // Run Dijkstra's algorithm and display the result
+                g.dijkstra(v1, v2, 0);
+                break;
+            case 5:
+                cout << "You Have Successfully Exitted....";
+                break;
+            default:
+                cout << "INVALID CHOICE.";
+        }
+    } while (ch != 5);
+
+    return 0;
+}

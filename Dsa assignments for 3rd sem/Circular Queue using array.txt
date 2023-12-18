@@ -1,0 +1,92 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+bool isEmpty(int r, int f){
+	return f==-1 and r==-1;
+}
+bool isFull(int r, int f, int n ){
+	return (r+1)%n==f;
+}
+
+
+
+
+
+void enqueue(int a[],int&r , int &f , int n , int v){
+	if (isFull(r,f,n)){
+		cout<<"Queue is full"<<endl;
+		return;
+	}
+	if(isEmpty(r,f)){
+		f=r=0;
+	}
+	else {r=(r+1)%n;}
+	a[r]=v;
+	cout<<"Enqued "<<v<<endl;
+	
+}
+
+void dequeue(int a[],int&r, int &f, int n ){
+	if(isEmpty(r,f)){
+		cout<<"Queue is Empty"<<endl;
+		return;
+	}
+	int deqval=a[f];
+	if(f==r){
+		f=r=-1;
+	}
+	else {f=(f+1)%n;}
+	cout<<"Dequqed "<<deqval<<endl;
+}
+
+void display (int a[], int r , int f , int n ){
+	if(isEmpty(r,f)){
+		cout<<"Queue is empty "<<endl;
+		return;
+	}
+	cout<<"Queue elements are : ";
+	int i = f ; 
+	do {
+		cout<<a[i]<<" ";
+		i=(i+1)%n;
+	}while (i!=(r+1)%n);
+	cout<<endl;
+}
+
+
+
+
+int main (){
+	int n ; 
+	cout<<"Enter the maximum size of the circular queue"<<endl;
+	cin>>n;
+	int a[n];
+	int r= -1,f=-1;
+	int x ; 
+	do {cout<<"----------MENU----------"<<endl;
+		cout<<"Press 1 for Enqueue "<<endl;
+		cout<<"Press 2 for Dequeue "<<endl;
+		cout<<"Press 3 for Display  "<<endl;
+		  cout << "0. Exit\n";
+		cout<<"Enter Your choice"<<endl;
+		cin>>x;
+		switch(x){
+			case 1: cout<<"Enter the value to be enqued"<<endl;
+			int v;
+			cin>>v;
+			enqueue(a,r,f,n,v);
+			break;
+			case 2 : dequeue(a,r,f,n);
+			break;
+			case 3 : display(a,r,f,n);
+			break;
+			case 0:
+                cout << "Exiting the program.\n";
+                break;
+            default:
+                cout << "Invalid choice. Try again.\n";
+		}
+		
+	}while (x!=0);
+}

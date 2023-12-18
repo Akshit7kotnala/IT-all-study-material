@@ -1,0 +1,167 @@
+#include <bits/stdc++.h>
+#include<iostream>
+#define ll long long
+using namespace std;
+
+// Structure to represent a node in the threaded binary tree
+struct node {
+    int data;
+    node *left;
+    node *right;
+    bool leftThread;
+    bool rightThread;
+};
+
+// Class representing a threaded binary tree
+class threaded_binary_tree {
+public:
+    // Function to insert a node with key into the threaded binary tree
+    node *insertion(node *root, int key) {
+        node *ptr = root;
+        node *par = nullptr;
+        
+        // Traverse the tree to find the position for the new node
+        while (ptr != nullptr) {
+            if (ptr->data == key) {
+                cout << "Already exists, enter something else" << endl;
+                return root;
+            }
+            par = ptr;
+            if (ptr->data > key) {
+                if (ptr->leftThread == false) {
+                    ptr = ptr->left;
+                } else {
+                    break;
+                }
+            } else {
+                if (ptr->rightThread == false) {
+                    ptr = ptr->right;
+                } else {
+                    break;
+                }
+            }
+        }
+
+        // Create a new node with key
+        node *temp = new node();
+        temp->data = key;
+        temp->leftThread = temp->rightThread = true;
+
+        // Insert the new node based on the comparison with the parent node
+        if (par == nullptr) {
+            root = temp;
+            root->left = root->right = nullptr;
+        } else if (par->data > key) {
+            temp->right = par;
+            temp->left = par->left;
+            par->leftThread = false;
+            par->left = temp;
+        } else {
+            temp->left = par;
+            temp->right = par->right;
+            par->right = temp;
+            par->rightThread = false;
+        }
+        return root;
+    }
+
+    // Function to find the inorder successor of a node in the threaded binary tree
+    node *inorder_successor(node *ptr) {
+        if (ptr->rightThread == true) {
+            return ptr->right;
+        }
+        ptr = ptr->right;
+        while (ptr->leftThread == false) {
+            ptr = ptr->left;
+        }
+        return ptr;
+    }
+
+    // Function to perform inorder traversal of the threaded binary tree
+    node *inorder_traversal(node *root) {
+        if (root == nullptr) {
+            cout << "Empty tree" << endl;
+            return root;
+        }
+        node *ptr = root;
+        while (ptr->leftThread == false) {
+            ptr = ptr->left;
+        }
+        while (ptr) {
+            cout << ptr->data << " ";
+            ptr = inorder_successor(ptr);
+        }
+        return root;
+    }
+
+    // Function to find the preorder successor of a node in the threaded binary tree
+    node *preorder_successor(node *temp) {
+        if (temp->rightThread) {
+            return temp->right;
+        }
+        temp = temp->right;
+        cout << temp->data << " ";
+        while (temp->leftThread == false) {
+            temp = temp->left;
+            cout << temp->data << " ";
+        }
+        return temp;
+    }
+
+    // Function to perform preorder traversal of the threaded binary tree
+    node *preorder(node *root) {
+        if (root == nullptr) {
+            cout << "Empty tree" << endl;
+            return root;
+        }
+        node *ptr = root;
+        cout << ptr->data << " ";
+        while (ptr->leftThread == false) {
+            ptr = ptr->left;
+            cout << ptr->data << " ";
+        }
+        while (ptr != nullptr) {
+            ptr = preorder_successor(ptr);
+        }
+        return root;
+    }
+};
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    threaded_binary_tree tbt;
+    node *root = nullptr;
+    int choice;
+    do {
+        cout << "Enter the choice: \n";
+        cout << "1 for insertion" << endl;
+        cout << "2 for inorder traversal" << endl;
+        cout << "3 for preorder traversal" << endl;
+        cout << "0 for exit" << endl;
+        cin >> choice;
+
+        // Switch case to perform operations based on user input
+        switch (choice) {
+            case 1:
+                cout << "Enter the value to be entered:" << endl;
+                int a;
+                cin >> a;
+                root = tbt.insertion(root, a);
+                break;
+            case 2:
+                cout << "The inorder traversal of tree is :" << endl;
+                root = tbt.inorder_traversal(root);
+                cout << endl;
+                break;
+            case 3:
+                cout << "The preorder traversal of tree is " << endl;
+                root = tbt.preorder(root);
+                cout << endl;
+                break;
+        }
+    } while (choice != 0);
+
+    return 0;
+}

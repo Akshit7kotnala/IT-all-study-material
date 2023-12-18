@@ -1,0 +1,43 @@
+No  of Accounts you want
+2
+Enter details for Account 1
+Account Holder Name: hhgf
+Account Number: 44476
+Initial Balance: 4444
+Enter details for Account 2
+Account Holder Name: gxf
+Account Number: 34243
+Initial Balance: 8767
+
+Choose Operation:
+1. Deposit  2. Withdraw  3. Check Balance  4. Display Account Info  5. Exit
+1
+Enter Account Number (1 to 2): 1
+Enter Deposit Amount: $556
+Deposited RS556.0 successfully.
+
+Choose Operation:
+1. Deposit  2. Withdraw  3. Check Balance  4. Display Account Info  5. Exit
+2
+Enter Account Number (1 to 2): 1
+Enter Withdrawal Amount: RS3334 
+Withdrawal exceeds daily limit. Cannot process.
+
+Choose Operation:
+1. Deposit  2. Withdraw  3. Check Balance  4. Display Account Info  5. Exit
+3
+Enter Account Number (1 to 2): 1
+Account Balance: RS5000.0
+
+Choose Operation:
+1. Deposit  2. Withdraw  3. Check Balance  4. Display Account Info  5. Exit
+4
+Enter Account Number (1 to 2): 1
+Account Holder: hhgf
+Account Number: 44476
+Balance: RS5000.0
+
+Choose Operation:
+1. Deposit  2. Withdraw  3. Check Balance  4. Display Account Info  5. Exit
+5
+Exiting program. Goodbye!

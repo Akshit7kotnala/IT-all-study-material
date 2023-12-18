@@ -1,0 +1,40 @@
+Press 1: To display salary of Programmer 
+Press 2: To display salary of TeamLead 
+Press 3: To display salary of Assistant Project manager 
+Press 4: To display salary of Project Manager 
+Press any other: For exit
+1
+Enter the name of the Employee : 
+akshit 
+Enter the employee I.D : 
+34
+Enter the adress of the Employee :
+ahjkhj
+Enter the E mail id of the Employee : 
+ghjkl
+Invalid mail . Mail must end with @gmail.com.
+Enter the E mail id of the Employee : 
+ak@gmail.com
+Enter the mob no of the employee : 
+878
+Invalid Phone no .
+Enter the mob no of the employee : 
+8279912226
+Enter the Basic Pay of the Employee : 
+4567
+Name :akshit 
+Adress : ahjkhj
+Maild : ak@gmail.com
+Emp id : 34
+Mobile no : 8279912226
+HRA : 456.70000000000005
+DA :4429.99
+Pf : 548.04
+staffClubFund : 4.567
+Gross salary of the employee is : 9458.257
+Net Salary of the employee is : 8910.217
+Press 1: To display salary of Programmer 
+Press 2: To display salary of TeamLead 
+Press 3: To display salary of Assistant Project manager 
+Press 4: To display salary of Project Manager 
+Press any other: For exit

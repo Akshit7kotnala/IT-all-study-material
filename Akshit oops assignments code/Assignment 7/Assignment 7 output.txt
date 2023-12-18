@@ -1,0 +1,105 @@
+********************MENU**********************
+1 . enter 1 for INTEGER input
+2. enter 2 for STRING input
+3. enter 3 to EXIT code
+enter your choice :  1
+enter the number of integers in list :  5
+enter the element for index 0 :  0
+enter the element for index 1 :  12
+enter the element for index 2 :  23
+enter the element for index 3 :  5
+enter the element for index 4 :  6
+********************SUB_MENU**********************
+1. enter 1 to check EVEN or ODD 
+2. enter 2 to check PRIME or NOT
+3. enter 3 to check PALLINDROME or NOT
+4. enter 4 to EXIT code
+enter your SUB CHOICE :  1
+the TOTAL number of EVEN numbers are : 3
+the LIST of EVEN numbers is : 
+The INDEX is : 0 and the EVEN element is : 0 
+The INDEX is : 1 and the EVEN element is : 12 
+The INDEX is : 4 and the EVEN element is : 6 
+
+the TOTAL number of ODD numbers are : 2
+the LIST of ODD numbers is : 
+The INDEX is : 2 and the ODD element is : 23 
+The INDEX is : 3 and the ODD element is : 5 
+
+********************SUB_MENU**********************
+1. enter 1 to check EVEN or ODD 
+2. enter 2 to check PRIME or NOT
+3. enter 3 to check PALLINDROME or NOT
+4. enter 4 to EXIT code
+enter your SUB CHOICE :  2
+the TOTAL number of PRIME numbers are : 2
+the LIST of PRIME numbers is : 
+The INDEX is : 2 and the PRIME element is : 23 
+The INDEX is : 3 and the PRIME element is : 5 
+
+the TOTAL number of NON PRIME numbers are : 3
+the LIST of NON PRIME numbers is : 
+The INDEX is : 0 and the NON PRIME element is : 0 
+The INDEX is : 1 and the NON PRIME element is : 12 
+The INDEX is : 4 and the NON PRIME element is : 6 
+
+********************SUB_MENU**********************
+1. enter 1 to check EVEN or ODD 
+2. enter 2 to check PRIME or NOT
+3. enter 3 to check PALLINDROME or NOT
+4. enter 4 to EXIT code
+enter your SUB CHOICE :  3
+the TOTAL number of PALLINDROME numbers are : 3
+the LIST of PALLINDROME numbers is : 
+The INDEX is : 0 and the PALLINDROME element is : 0 
+The INDEX is : 3 and the PALLINDROME element is : 5 
+The INDEX is : 4 and the PALLINDROME element is : 6 
+
+the TOTAL number of NON PALLINDROME numbers are : 2
+the LIST of NON PALLINDROME numbers is : 
+The INDEX is : 1 and the NON PALLINDROME element is : 12 
+The INDEX is : 2 and the NON PALLINDROME element is : 23 
+
+********************SUB_MENU**********************
+1. enter 1 to check EVEN or ODD 
+2. enter 2 to check PRIME or NOT
+3. enter 3 to check PALLINDROME or NOT
+4. enter 4 to EXIT code
+enter your SUB CHOICE :  4
+code executed successfully
+********************MENU**********************
+1 . enter 1 for INTEGER input
+2. enter 2 for STRING input
+3. enter 3 to EXIT code
+enter your choice :  2
+enter the number of STRINGS in list :  4
+enter the string for index 0 :  a
+enter the string for index 1 :  bcb
+enter the string for index 2 :  cvb
+enter the string for index 3 :  nmnmj
+********************SUB_MENU**********************
+1. enter 1 to check PALLINDROME or NOT
+2. enter 2 to EXIT code
+enter your SUB CHOICE :  1
+the TOTAL number of PALLINDROME numbers are : 2
+the LIST of PALLINDROME numbers is : 
+The INDEX is : 0 and the PALLINDROME string is : a 
+The INDEX is : 1 and the PALLINDROME string is : bcb 
+
+the TOTAL number of NON PALLINDROME numbers are : 2
+the LIST of NON PALLINDROME numbers is : 
+The INDEX is : 2 and the NON PALLINDROME string is : cvb 
+The INDEX is : 3 and the NON PALLINDROME string is : nmnmj 
+
+********************SUB_MENU**********************
+1. enter 1 to check PALLINDROME or NOT
+2. enter 2 to EXIT code
+enter your SUB CHOICE :  2
+exit the code 
+exit complete code
+********************MENU**********************
+1 . enter 1 for INTEGER input
+2. enter 2 for STRING input
+3. enter 3 to EXIT code
+enter your choice :  3
+exit complete code

@@ -1,0 +1,93 @@
+MENU
+press 1. take array input 
+press 2. access element in array 
+press 3. divide the numbers 
+press 4. exit code
+Enter your choice : 
+1
+enter the size of array : ab
+java.util.InputMismatchException please enter valid datatype for array elements.
+MENU
+press 1. take array input 
+press 2. access element in array 
+press 3. divide the numbers 
+press 4. exit code
+Enter your choice : 
+1
+enter the size of array : 5
+enter element 1: aaa
+enter element 2: 10
+enter element 3: 5
+enter element 4: 2
+enter element 5: 0
+MENU
+press 1. take array input 
+press 2. access element in array 
+press 3. divide the numbers 
+press 4. exit code
+Enter your choice : 
+2
+enter the index of element to be found : 
+8
+java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 5 you are trying to access invalid index. Please enetr valid index. Max value of size is 5
+MENU
+press 1. take array input 
+press 2. access element in array 
+press 3. divide the numbers 
+press 4. exit code
+Enter your choice : 
+2
+enter the index of element to be found : 
+3
+element at index 3 is : 2
+MENU
+press 1. take array input 
+press 2. access element in array 
+press 3. divide the numbers 
+press 4. exit code
+Enter your choice : 
+3
+enter the index of element for number_1 : 
+1
+enter the index of element for number_2: 
+0
+java.lang.NumberFormatException: For input string: "aaa" please enter integer values for numbers.
+finally block executed
+MENU
+press 1. take array input 
+press 2. access element in array 
+press 3. divide the numbers 
+press 4. exit code
+Enter your choice : 
+3
+enter the index of element for number_1 : 
+1
+enter the index of element for number_2: 
+4
+the first number is : 10
+the second number is : 0
+java.lang.ArithmeticException: / by zero cannot divide a number by zero. please enter number_2 accordingly.
+finally block executed
+MENU
+press 1. take array input 
+press 2. access element in array 
+press 3. divide the numbers 
+press 4. exit code
+Enter your choice : 
+3
+enter the index of element for number_1 : 
+1
+enter the index of element for number_2: 
+2
+the first number is : 10
+the second number is : 5
+division of 10 and 5 is : 2
+finally block executed
+MENU
+press 1. take array input 
+press 2. access element in array 
+press 3. divide the numbers 
+press 4. exit code
+Enter your choice : 
+4
+ code exited successfully.

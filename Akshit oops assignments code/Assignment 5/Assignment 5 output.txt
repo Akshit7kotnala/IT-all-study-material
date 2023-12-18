@@ -1,0 +1,109 @@
+Press 1 for car 
+Press 2 for bike 
+Press 3 for bicycle 
+Press 0 to EXIT 
+1
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+1
+Current speed of the vehicle is : 30
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+2
+Current gear is :2
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+3
+Current gear is :1
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+4
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+5
+Current speed of car is 0
+Current gear of car is 0
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+0
+Press 1 for car 
+Press 2 for bike 
+Press 3 for bicycle 
+Press 0 to EXIT 
+2
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+1
+Current speed of the vehicle is : 20
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+2
+Current gear is :2
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+3
+Current gear is :1
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+4
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+5
+Current speed of bike is 0
+Current gear of bike is 0
+Press 1 to speedup 
+Press 2 to gear up 
+Press 3 to gear down 
+Press 4 to apply break 
+Press 5 to display details 
+Press 0 to Exit
+0
+Press 1 for car 
+Press 2 for bike 
+Press 3 for bicycle 
+Press 0 to EXIT 
+0

@@ -1,0 +1,170 @@
+import java.util.*;
+//Design and develop inheritance for a given case study,
+// identify objects and relationships and implement inheritance
+// wherever applicable. Employee class with Emp_name, Emp_id, Address,
+// Mail_id, and Mobile_no as members. Inherit the classes, Programmer,
+// Team Lead, Assistant Project Manager and Project Manager from employee
+// class. Add Basic Pay (BP) as the member of all the inherited classes with
+// 97% of BP as DA, 10 % of BP as HRA, 12% of BP as PF, 0.1% of BP for staff
+// club fund. Generate pay slips for the employees with their gross and net salary.
+
+
+
+class Employe{
+    String empid;
+    String mobno;
+    String name , adress , mail_id;
+    //double grossSalary;
+    //double netSalary;
+    //long basic_pay;
+
+    Scanner Sc = new Scanner(System.in);
+     public boolean mobileno(){
+         return mobno.length()==10 && mobno.charAt(0)!='0';
+     }
+     public boolean mail(){
+         return mail_id.endsWith("@gmail.com");
+     }
+    void accept(){
+        System.out.println("Enter the name of the Employee : ");
+        name = Sc.nextLine();
+        System.out.println("Enter the employee I.D : ");
+        empid = Sc.nextLine();
+
+        System.out.println("Enter the adress of the Employee :");
+        adress = Sc.nextLine();
+       boolean mails = false;
+       do {
+           System.out.println("Enter the E mail id of the Employee : ");
+           mail_id = Sc.nextLine();
+           mails= mail();
+           if(!mails){
+               System.out.println("Invalid mail . Mail must end with @gmail.com.");
+           }
+
+       }while(!mails);
+
+
+       boolean mobilenos = false ;
+       do {
+           System.out.println("Enter the mob no of the employee : ");
+           mobno = Sc.nextLine();
+           mobilenos = mobileno();
+           if(!mobilenos){
+               System.out.println("Invalid Phone no .");
+           }
+
+       }
+       while(!mobilenos);
+
+
+
+
+
+    }
+     public void gross(int basic_pay){
+        //double PF;
+        //double grossSalary;
+        //double netSalary;
+        double DA = 0.97 * basic_pay;
+        double HRA = 0.10 * basic_pay;
+        double PF = 0.12 * basic_pay;
+        double staffClubFund = 0.001 * basic_pay;
+        double grossSalary = basic_pay + DA + HRA + staffClubFund;
+        //double netSalary = grossSalary - PF;
+         System.out.println("Name :" +name);
+         System.out.println("Adress : " + adress);
+         System.out.println("Maild : " + mail_id);
+         System.out.println("Emp id : "+ empid);
+         System.out.println("Mobile no : "+ mobno);
+         System.out.println("HRA : "+ HRA);
+         System.out.println("DA :"+ DA);
+         System.out.println("Pf : "+ PF);
+         System.out.println("staffClubFund : "+ staffClubFund );
+        System.out.println("Gross salary of the employee is : " + grossSalary);
+        double netSalary = grossSalary - PF;
+        System.out.println("Net Salary of the employee is : " + netSalary);
+    }
+
+
+}
+class Programmerr extends Employe{
+    int basic_pay;
+
+      void pqr(){
+        Scanner Sc = new Scanner(System.in);
+    System.out.println("Enter the Basic Pay of the Employee : ");
+    basic_pay = Sc.nextInt();
+    }
+}
+class Team_lead extends Employe{
+    int basic_pay;
+    Scanner Sc = new Scanner(System.in);
+     void pqr(){
+        System.out.println("Enter the Basic Pay of the Employee : ");
+        basic_pay = Sc.nextInt();
+    }
+
+}
+class  Assistant_Project_Manager extends Employe{
+    int basic_pay;
+    Scanner Sc = new Scanner(System.in);
+    void pqr(){
+        System.out.println("Enter the Basic Pay of the Employee : ");
+        basic_pay = Sc.nextInt();}
+
+}
+class Project_Manager extends Employe{
+    int basic_pay;
+    Scanner Sc = new Scanner(System.in);
+    void pqr(){
+        System.out.println("Enter the Basic Pay of the Employee : ");
+        basic_pay = Sc.nextInt();
+    }
+
+}
+public class Assignment3 {
+    public static void main(String args []){
+ int choice ;
+
+        Scanner Sc = new Scanner(System.in);
+        do {
+            System.out.println("Press 1: To display salary of Programmer ");
+            System.out.println("Press 2: To display salary of TeamLead \nPress 3: To display salary of Assistant Project manager ");
+            System.out.println("Press 4: To display salary of Project Manager \nPress any other: For exit");
+
+            choice = Sc.nextInt();
+            switch (choice) {
+                case 1: Programmerr p1=  new Programmerr();
+                p1.accept();
+                p1.pqr();
+                p1.gross( p1.basic_pay);
+                break;
+
+
+                case 2 : Team_lead t1 = new Team_lead();
+                t1.accept();
+                t1.pqr();
+                t1.gross(t1.basic_pay);
+                break;
+
+                case 3 : Assistant_Project_Manager a1 = new Assistant_Project_Manager();
+                a1.accept();
+                a1.pqr();
+                a1.gross(a1.basic_pay);
+                break;
+
+                case 4 : Project_Manager  q1 = new Project_Manager();
+                q1.accept();
+                q1.pqr();
+                q1.gross(q1.basic_pay);
+                break;
+
+
+            }
+        }while(choice<5 && choice>0);
+
+
+
+    }
+}

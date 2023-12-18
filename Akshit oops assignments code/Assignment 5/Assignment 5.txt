@@ -1,0 +1,243 @@
+//Assignment 5 by Akshit 
+import java.util.Scanner;
+
+interface vehicle{
+    void speedup();
+    void apply_break();
+    void change_gear(int x);
+    void display();
+}
+
+ class car implements vehicle{
+    int current_speed;
+    int current_gear;
+    final int MAX_GEAR;
+     final int MAX_SPEED;
+    car(){
+          MAX_SPEED = 150;
+          MAX_GEAR = 5;
+         current_speed = 0;
+         current_gear = 0;
+    }
+
+     public void speedup(){
+        current_speed += 30;
+        current_gear += 1;
+        System.out.println("Current speed of the vehicle is : "+current_speed);
+        if(current_speed>=MAX_SPEED ) {
+            current_gear=MAX_GEAR;
+            current_speed=MAX_SPEED;
+            System.out.println("MAX speed limit reached!!!");
+        }
+
+    }
+    public void apply_break() {
+       current_speed=0;
+       current_gear=0;
+    }
+    public void change_gear(int x){
+        if(x==2){
+            current_gear+=1;
+            current_speed+=30;
+           
+        }
+        else if(x==3){
+            current_speed-=30;
+            current_gear-=1;
+        }
+         System.out.println("Current gear is :"+current_gear);
+        if(current_gear>=MAX_GEAR){
+            current_gear=MAX_GEAR;
+            current_speed=MAX_SPEED;
+            System.out.println("Car is at max gear!!!");
+        }
+    }
+    public void display(){
+        System.out.println("Current speed of car is "+current_speed);
+        System.out.println("Current gear of car is "+current_gear);
+    }
+}
+
+class bike implements vehicle{
+    int current_speed;
+    int current_gear;
+    final int MAX_GEAR;
+    final int MAX_SPEED;
+    bike(){
+         MAX_SPEED = 100;
+         MAX_GEAR = 5;
+         current_speed = 0;
+         current_gear = 0;
+    }
+
+    public void speedup(){
+        current_speed += 20;
+        current_gear += 1;
+         System.out.println("Current speed of the vehicle is : "+current_speed);
+        if(current_speed>=MAX_SPEED ) {
+            current_gear=MAX_GEAR;
+            current_speed=MAX_SPEED;
+            System.out.println("MAX speed limit reached!!!");
+        }
+
+    }
+    public void apply_break() {
+        current_speed=0;
+        current_gear=0;
+    }
+    public void change_gear(int x){
+        if(x==2){
+            current_gear+=1;
+            current_speed+=20;
+            
+        }
+        else if(x==3){
+            current_speed-=20;
+            current_gear-=1;
+        }
+         System.out.println("Current gear is :"+current_gear);
+        if(current_gear>=MAX_GEAR){
+            current_gear=MAX_GEAR;
+            current_speed=MAX_SPEED;
+            System.out.println("bike is at max gear!!!");
+        }
+    }
+    public void display(){
+        System.out.println("Current speed of bike is "+current_speed);
+        System.out.println("Current gear of bike is "+current_gear);
+    }
+}
+
+class bicycle implements vehicle{
+    int current_speed;
+    int current_gear;
+    final int MAX_GEAR;
+    final int MAX_SPEED;
+    bicycle(){
+         MAX_SPEED = 50;
+         MAX_GEAR = 5;
+         current_speed = 0;
+         current_gear = 0;
+    }
+
+    public void speedup(){
+        current_speed += 10;
+        current_gear += 1;
+        System.out.println("Current speed of the vehicle is : "+current_speed);
+        if(current_speed>=MAX_SPEED ) {
+            current_gear=MAX_GEAR;
+            current_speed=MAX_SPEED;
+            System.out.println("MAX speed limit reached!!!");
+        }
+
+    }
+    public void apply_break() {
+        current_speed=0;
+        current_gear=0;
+    }
+    public void change_gear(int x){
+        System.out.println("Press 1 to increase gear");
+        System.out.println("Press 2 to decrease gear");
+        if(x==2){
+            current_gear+=1;
+            current_speed+=10;
+        }
+        else if(x==3){
+            current_speed-=10;
+            current_gear-=1;
+        }
+         System.out.println("Current gear is :"+current_gear);
+        if(current_gear>=MAX_GEAR){
+            current_gear=MAX_GEAR;
+            current_speed=MAX_SPEED;
+            System.out.println("Car is at max gear!!!");
+        }
+    }
+    public void display(){
+        System.out.println("Current speed of bicycle is "+current_speed);
+        System.out.println("Current gear of bicycle is "+current_gear);
+    }
+}
+
+class driver{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int chk,c;
+        do{
+            System.out.println("Press 1 for car ");
+            System.out.println("Press 2 for bike ");
+            System.out.println("Press 3 for bicycle ");
+            System.out.println("Press 0 to EXIT ");
+            chk=sc.nextInt();
+            if(chk==1) {
+                car obj = new car();
+                do {
+                    System.out.println("Press 1 to speedup ");
+                    System.out.println("Press 2 to gear up ");
+                    System.out.println("Press 3 to gear down ");
+                    System.out.println("Press 4 to apply break ");
+                    System.out.println("Press 5 to display details ");
+                    System.out.println("Press 0 to Exit");
+                    c = sc.nextInt();
+                    if (c == 1) {
+                        obj.speedup();
+                    } else if (c == 2) {
+                        obj.change_gear(c);
+                    } else if (c == 3) {
+                        obj.change_gear(c);
+                    } else if (c == 4) {
+                        obj.apply_break();
+                    } else if (c == 5) {
+                        obj.display();
+                    }
+                }while(c!=0);
+            }
+            else if(chk==2) {
+                bike obj = new bike();
+                do {
+                    System.out.println("Press 1 to speedup ");
+                    System.out.println("Press 2 to gear up ");
+                    System.out.println("Press 3 to gear down ");
+                    System.out.println("Press 4 to apply break ");
+                    System.out.println("Press 5 to display details ");
+                    System.out.println("Press 0 to Exit");
+                    c = sc.nextInt();
+                    if (c == 1) {
+                        obj.speedup();
+                    } else if (c == 2) {
+                        obj.change_gear(c);
+                    } else if (c == 3) {
+                        obj.change_gear(c);
+                    } else if (c == 4) {
+                        obj.apply_break();
+                    } else if (c == 5) {
+                        obj.display();
+                    }
+                }while(c!=0);
+            }
+            else if(chk==3) {
+                bicycle obj = new bicycle();
+                do {
+                    System.out.println("Press 1 to speedup ");
+                    System.out.println("Press 2 to gear up ");
+                    System.out.println("Press 3 to gear down ");
+                    System.out.println("Press 4 to apply break ");
+                    System.out.println("Press 5 to display details ");
+                    System.out.println("Press 0 to Exit");
+                    c = sc.nextInt();
+                    if (c == 1) {
+                        obj.speedup();
+                    } else if (c == 2) {
+                        obj.change_gear(c);
+                    } else if (c == 3) {
+                        obj.change_gear(c);
+                    } else if (c == 4) {
+                        obj.apply_break();
+                    } else if (c == 5) {
+                        obj.display();
+                    }
+                }while(c!=0);
+            }
+        }while (chk!=0);
+    }
+}

@@ -1,0 +1,111 @@
+
+import java.util.*;
+abstract class Shape {
+    protected double base;
+    protected double height;
+    Scanner sc = new Scanner(System.in);
+
+    Shape(){
+        base = 0;
+        height = 0;
+    }
+    abstract void getDim();
+
+    abstract void computArea();
+
+}
+class Rectangle extends Shape{
+    //@Override
+    public void getDim(){
+        System.out.println("Enter Rectangle's Dimension : ");
+        System.out.print("Enter Width : ");
+        base = sc.nextDouble();
+        System.out.print("Enter Height : ");
+        height = sc.nextDouble();
+        System.out.println();
+    }
+
+    //@Override
+    void computArea(){
+        System.out.println("Area of Rectangle : " + this.base*this.height + " sq. units " + "\n\n");
+    }
+
+
+}
+ class Triangle extends Shape{
+
+   // @Override
+    void getDim(){
+        System.out.println("Enter Triangle's Dimension : ");
+        System.out.print("Enter Base : ");
+        base = sc.nextDouble();
+        System.out.print("Enter Height : ");
+        height = sc.nextDouble();
+        System.out.println();
+    }
+
+
+   // @Override
+    void computArea(){
+        System.out.println("Area of Triangle : " + (this.base*this.height)/2  + " sq. units "+ "\n\n" );
+    }
+
+}
+
+class Pentagon extends Shape {
+    void getDim(){
+        System.out.println("Enter Pentagons  Dimension : ");
+        System.out.print("Enter side length : ");
+        base = sc.nextDouble();
+        System.out.print("Enter distance from the center of sides to the center of pentagon : ");
+        height = sc.nextDouble();
+        System.out.println();
+    }
+    void computArea(){
+        System.out.println("Area of Pentagon is  : " + 5*((this.base*this.height)/2)  + " sq. units "+ "\n\n" );
+    }
+
+}
+public class Assignment4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Triangle t = new Triangle();
+        Rectangle r = new Rectangle();
+        Shape p = new Pentagon();
+
+        while (true){
+            System.out.println("-----Area Calculator-----\n");
+            System.out.println("Enter");
+            System.out.println("1.Calculate Area of Triangle.");
+            System.out.println("2.Calculate Area of Reactangle.");
+            System.out.println("3.Calculate Area of Pentagon.");
+            System.out.println("4.Invalid Input...\n");
+
+            int choice;
+            System.out.print("Enter Your choice : ");
+            choice = sc.nextInt();
+            System.out.println();
+
+            switch (choice){
+                case 1 :
+                    t.getDim();
+                    t.computArea();
+                    break;
+                case 2 :
+                    r.getDim();
+                    r.computArea();
+                    break;
+                case 3 :
+                    p.getDim();
+                    p.computArea();
+                    break;
+                case 4:
+                    System.out.println("Invalid Input..\n\n");
+
+            }
+        }
+
+
+    }
+}
+//Thank you for seeing ,Iam Akshit 

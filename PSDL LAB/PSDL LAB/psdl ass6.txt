@@ -1,0 +1,30 @@
+assignment 6:
+
+#include <pic184550.h>
+#define buzzer LATAbits.LATA5       // define buzzer pin
+unsigned int count =0;
+void interrupt Timer 1_ISRL (void){
+	if(TMR1IF==1){                //1ms delay in timer
+		TMR1L=0x20;
+		TMR1H=0x01;
+		count++;
+	}
+	if(count>=1000){        //measure upto 1000ms i.e 1 sec
+		buzzer= ~buzzer;  //toggle buzzer pin
+		count=0;         //reset count
+	}
+	TMR1IF=0;    //timer 1 overflow flag to 0
+}
+void main(void){ 
+	TRISB=0;
+	TRISAbits.TRISA5=0;  //set buzzer pin as output
+	GIE=1;            // enable global interrupt
+	PEIE=1;           // enable peripheral interrupt
+	TMR1IE=1;         //enable timer 1 overflow interrupt
+	TMR1IF=0;
+	T1CON=0x80;     // 1:8 prescale
+	TMR1L=0x20;
+	TMR1H=0x01;
+	TMRON=1;
+	while(1);
+} //BY AKSHIT KOTNALA

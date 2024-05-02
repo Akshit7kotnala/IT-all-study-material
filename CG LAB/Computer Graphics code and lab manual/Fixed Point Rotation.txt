@@ -1,0 +1,72 @@
+#include<windows.h> // Include the Windows API for Windows-specific functions
+#include<GL/GLU.h> // Include the OpenGL Utility Library for OpenGL utility functions
+#include<GL/glut.h> // Include the GLUT library for OpenGL utility toolkit functions
+
+void draw() // Function to draw the initial triangle
+{
+    glClear(GL_COLOR_BUFFER_BIT); // Clear the color buffer
+    glColor3f(0, 0, 1); // Set the drawing color to blue
+    glBegin(GL_LINE_LOOP); // Begin drawing a line loop (a triangle)
+    glVertex2f(0.1, 0.4); // Specify the first vertex of the triangle
+    glVertex2f(0.7, 0.4); // Specify the second vertex of the triangle
+    glVertex2f(0.4, 0.8); // Specify the third vertex of the triangle
+    glEnd(); // End drawing the triangle
+    glFlush(); // Flush the buffer to display the triangle
+}
+
+void OptionsMenu(GLint selectedOpt) // Function to handle the options in the right-click menu
+{
+    switch (selectedOpt) // Switch statement to determine the selected option
+    {
+    case 1: // If the first option is selected (rotate)
+        glLoadIdentity(); // Load the identity matrix to reset transformations
+        glTranslatef(0.1, 0.4, 0); // Translate to the pivot point
+        glRotatef(-45, 0, 0, 1); // Rotate around the z-axis
+        glTranslatef(-0.1, -0.4, 0); // Translate back to the original position
+        glColor3f(1, 0, 0); // Set the drawing color to red
+        glBegin(GL_LINE_LOOP); // Begin drawing a line loop (a triangle)
+        glVertex2f(0.1, 0.4); // Specify the first vertex of the triangle
+        glVertex2f(0.7, 0.4); // Specify the second vertex of the triangle
+        glVertex2f(0.4, 0.8); // Specify the third vertex of the triangle
+        glEnd(); // End drawing the triangle
+        glFlush(); // Flush the buffer to display the triangle
+        break;
+    case 2: // If the second option is selected (scale)
+        glLoadIdentity(); // Load the identity matrix to reset transformations
+        glTranslatef(0.1, 0.4, 0); // Translate to the pivot point
+        glScalef(0.5, 0.5, 0); // Scale the object
+        glTranslatef(-0.1, -0.4, 0); // Translate back to the original position
+        glColor3f(1, 1, 0); // Set the drawing color to yellow
+        glBegin(GL_LINE_LOOP); // Begin drawing a line loop (a triangle)
+        glVertex2f(0.1, 0.4); // Specify the first vertex of the triangle
+        glVertex2f(0.7, 0.4); // Specify the second vertex of the triangle
+        glVertex2f(0.4, 0.8); // Specify the third vertex of the triangle
+        glEnd(); // End drawing the triangle
+        glFlush(); // Flush the buffer to display the triangle
+        break;
+    default: break;
+    }
+}
+
+void init()
+{
+    glClearColor(0.0, 0.0, 0.0, 0.0); // Set the clear color for the color buffer (black)
+    glPointSize(1.0); // Set the point size for drawing
+}
+
+int main(int argC, char *argV[])
+{
+    glutInit(&argC, argV); // Initialize GLUT
+    glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE); // Set the display mode to RGB and single buffering
+    glutInitWindowPosition(0, 0); // Set the initial window position
+    glutInitWindowSize(500, 500); // Set the initial window size
+    glutCreateWindow("Fixed_Point_Rotation"); // Create a window with the specified title
+    glutDisplayFunc(draw); // Register the display callback function
+    glutCreateMenu(OptionsMenu); // Create a right-click menu
+    glutAddMenuEntry("Rotate ", 1); // Add a menu entry for rotating the triangle
+    glutAddMenuEntry("Scale", 2); // Add a menu entry for scaling the triangle
+    glutAttachMenu(GLUT_RIGHT_BUTTON); // Attach the menu to the right mouse button
+    init(); // Call the initialization function
+    glutMainLoop(); // Enter the GLUT main event loop
+    return 0; // Return 0 to exit the program
+}

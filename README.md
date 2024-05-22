@@ -246,6 +246,7 @@ $${\color{green}Note\space :\space All\space the\space study\space material\spac
 
 #### [CG-Decode](https://drive.google.com/drive/folders/1101KzOUykKp5EjbHWT_Zio-sypFrSl6W)
 
+####  [CG-codes]( https://github.com/Akshit7kotnala/IT-all-study-material/tree/main/CG%20LAB/Computer%20Graphics%20code%20and%20lab%20manual)
 #### [CG-TechKnowledge](https://drive.google.com/file/d/118LYZeIYU4T7o2Yy2XGRgPz01qatBgbN/view?usp=sharing)
 
 <hr>

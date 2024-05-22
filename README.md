@@ -49,7 +49,7 @@ $${\color{green}Note\space :\space All\space the\space study\space material\spac
 
 
 
-## [Second Year Study Material](https://studyhub.parthsali.tech/docs/category/semester-04)
+## [Previous year question papers]((https://drive.google.com/drive/folders/1CIfwSGpuRBy8WEnjHVUTDwPx0z6hn2fS))
 
 ## [Third Year Study Material](https://studyhub.parthsali.tech/docs/category/semester-06)
 

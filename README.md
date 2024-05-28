@@ -44,7 +44,7 @@
 
 ## [Previous year question papers](https://drive.google.com/drive/folders/1CIfwSGpuRBy8WEnjHVUTDwPx0z6hn2fS)
 
-##[Submission link for SE IT oops 2023-24 Bathch](https://aitpuneedu-my.sharepoint.com/:f:/g/personal/rbagate_aitpune_edu_in/EkhqePu_K1pFmL7mwO-387sBou7btSymNSMjUasB5i3kZg?e=Ic2dbH)
+## [Submission link for SE IT oops 2023-24 Bathch](https://aitpuneedu-my.sharepoint.com/:f:/g/personal/rbagate_aitpune_edu_in/EkhqePu_K1pFmL7mwO-387sBou7btSymNSMjUasB5i3kZg?e=Ic2dbH)
 ## [Third Year Study Material](https://studyhub.parthsali.tech/docs/category/semester-06)
 
 <hr>

@@ -45,6 +45,9 @@
 ## [Previous year question papers](https://drive.google.com/drive/folders/1CIfwSGpuRBy8WEnjHVUTDwPx0z6hn2fS)
 
 ## [Submission link for SE IT oops 2023-24 Bathch](https://aitpuneedu-my.sharepoint.com/:f:/g/personal/rbagate_aitpune_edu_in/EkhqePu_K1pFmL7mwO-387sBou7btSymNSMjUasB5i3kZg?e=Ic2dbH)
+## [CG Assignments by AKSHIT](https://github.com/Akshit7kotnala/IT-all-study-material/tree/main/CG%20LAB/Computer%20Graphics%20code%20and%20lab%20manual)
+## [DSA Assignments by AKSHIT](https://github.com/Akshit7kotnala/IT-all-study-material/tree/main/Dsa%20assignments%20for%203rd%20sem)
+## [PSDL lab assignments by AKSHIT](https://github.com/Akshit7kotnala/IT-all-study-material/blob/main/PSDL%20LAB/PSDL%20LAB%20ASSIGNMENT%20WITH%20OUTPUT.pdf)
 ## [Third Year Study Material](https://studyhub.parthsali.tech/docs/category/semester-06)
 
 <hr>

@@ -1,0 +1,98 @@
+
+// step 1 :  New project -> NewPackage -> NewClass  all named IPProcess
+
+// step 2 : right click on project ->  Build Path -> add ext archive -> file system -> usr -> lib -> ( hadoop -> hadoop-common-2.6.0-cdh5) && ( hadoop-0.20-mapreduce -> hadoop-core-2.6.0-mr1...)
+
+// step 3 : export project -> java -> jar -> change name & path to /home/cloudera/IPProcess.jar
+
+
+// step 4 :
+// create log.txt in home/cloudera folder
+// hadoop fs -put log.txt logfileinhadoop.txt
+// hadoop fs -ls
+
+// step 5 :
+// hadoop jar IPProcess.jar IPProcess.IPProcess logfileinhadoop.txt outputfile
+
+
+// Step 6 :
+// hadoop fs -cat outputfile/part-r-00000
+
+
+package IPProcess;
+
+import java.io.IOException;
+import java.util.StringTokenizer;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+public class IPProcess { // driver class
+
+  public static class TokenizerMapper
+       extends Mapper<Object, Text, Text, IntWritable>{
+       // Mapper :  Mapping operation on input log file
+       // input,input , output,output
+       // Object = Log File
+       // 1st Text = Lines of log file
+       // 2nd Text = IP
+       // IntWritable ( Hadoop boxclass for int ) = frequency of IP
+
+    private final static IntWritable one = new IntWritable(1);
+    private Text word = new Text();
+    // IP  (Hadoop boxclass for string is Text)
+    public void map(Object key, Text value, Context context
+                    ) throws IOException, InterruptedException {
+                    
+        // logic starts here
+        String[] tokens = value.toString().split(" ");
+                      
+        String ipAddress = tokens[0];
+
+        word.set(ipAddress) ;
+        context.write(word, one) ;  // Key,Value
+
+    }
+  }
+
+  public static class IntSumReducer
+       extends Reducer<Text,IntWritable,Text,IntWritable> {
+       // Reducer : Accumulating IP,freq pairs
+       // input, input , output,output
+       // IP Key,freq val, IP key , freq val
+
+    private IntWritable result = new IntWritable();
+
+    public void reduce(Text key, Iterable<IntWritable> values,
+                       Context context
+                       ) throws IOException, InterruptedException {
+      int sum = 0;
+      for (IntWritable val : values) {
+        sum += val.get();
+      }
+      result.set(sum);
+      context.write(key, result);
+    }
+  }
+
+  public static void main(String[] args) throws Exception {
+    Configuration conf = new Configuration();
+    Job job = Job.getInstance(conf, "word count");
+    job.setJarByClass(IPProcess.class);
+    job.setMapperClass(TokenizerMapper.class);
+    job.setCombinerClass(IntSumReducer.class);
+    job.setReducerClass(IntSumReducer.class);
+    job.setOutputKeyClass(Text.class);             // IP key type : Hadoop boxclass for string
+    job.setOutputValueClass(IntWritable.class);    // freq value type  : Hadoop boxclass for int
+    FileInputFormat.addInputPath(job, new Path(args[0]));
+    FileOutputFormat.setOutputPath(job, new Path(args[1]));
+    System.exit(job.waitForCompletion(true) ? 0 : 1);
+  }
+}

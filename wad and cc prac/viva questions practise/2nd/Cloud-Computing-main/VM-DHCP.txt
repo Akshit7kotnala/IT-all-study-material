@@ -1,0 +1,69 @@
+Transfer Files Between Two Virtual Machines Using NAT and DHC**1. Create the First Virtual Machine (VM1):**
+ - Open VirtualBox.
+ - Click on "New".
+ - Enter a name (e.g., VM1, vm01, VM0001). Use a different format if there is a naming conflict.
+ - Select Type: Linux, Version: Ubuntu (64-bit).
+ - For the hard disk, select "Use an existing virtual hard disk file".
+ - Choose the Ubuntu .vdi file. If it's not visible, click "Add" and manually select it.
+
+
+**2. Create the Second Virtual Machine (VM2):**
+ - Repeat Step 1.
+ - Use a different name (e.g., VM2, vm02, VM002, etc.).
+
+
+**3. Configure NAT Network:**
+ - In VirtualBox, go to File -> Tools -> NAT Networks.
+ - Make sure there is a NAT network listed. If not, click the plus (+) icon to create one.
+
+
+**4. Configure Network Settings for VM1:**
+ - Select VM1 -> Settings -> Network.
+ - Set Attached to: NAT Network.
+ - In Advanced -> Promiscuous Mode, choose Allow All.
+ - Click OK.
+
+
+**5. Configure Network Settings for VM2:**
+ - Select VM2 -> Settings -> Network.
+ - Set Attached to: NAT Network.
+ - In Advanced -> Promiscuous Mode, choose Allow All.
+ - Click OK.
+
+
+**6. Start Both VMs:**
+ - Launch both VM1 and VM2.
+ - Login with:
+ - Username: vagrant
+ - Password: vagrant
+
+
+**7. Install Networking Tools:**
+ - On both VMs, open Terminal and run: sudo apt install net-tools
+ - After installation, check IP addresses using: ifconfig
+ - Ensure both VMs have different inet IP addresses (e.g., 10.0.2.10, 10.0.2.11).
+
+
+**8. Create a File on VM1:**
+ - In VM1, run:
+ touch file.txt
+ nano file.txt
+ - Inside the editor, type any message (e.g., HELLO), then press: Ctrl + X -> Y -> Enter.
+ - Confirm content using: cat file.txt
+
+
+**9. Transfer File from VM1 to VM2:**
+ - On VM1, run: scp file.txt vagrant@<VM2-IP>:/home/vagrant
+ - Replace <VM2-IP> with the actual IP of VM2 (found using ifconfig).
+ - Type yes when prompted.
+ - Enter the password: vagrant
+
+
+**10. Verify File on VM2:**
+ - On VM2, run:
+ ls
+ cat file.txt
+ - You should see the transferred message.
+
+
+[Success] File Transfer is Successful!

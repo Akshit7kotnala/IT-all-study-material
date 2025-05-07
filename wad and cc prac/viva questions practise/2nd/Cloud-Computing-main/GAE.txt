@@ -1,0 +1,93 @@
+GAE :
+Steps -
+1. Make Folder on Desktop
+2.Open GAE Launcher
+3.go to File -> Create New Application
+4.give the name of application same as folder
+5.browse to the folder u have made
+6.port = 8080 ->press create
+7.Run the application (see if hello world can be seen)
+8. Stop and go to the folder 
+9.make these changes in app.yaml 
+    1. remove last 3 lines Libraries
+     2. add '/' on URL
+      3. make script as main.py
+     4.make threadsafe to no
+10. go to main.py and write the below codes
+
+# hello world 
+print 'Content-Type: text/plain'
+print ''
+print 'Hello World\n'
+
+# Multiplication Table of 5
+for x in range(1, 11):
+    print '5 X', x, '=', 5 * x
+print ''
+
+# Factorial
+def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+factorial_result = factorial(5)
+print '\nFactorial of 5 is:', factorial_result
+print ''
+
+# Repeated User Details
+name = 'Aman Kumar'
+seat_number = '302'
+department = 'IT'
+for _ in range(5):
+    print 'Name: ', name
+    print 'Seat Number: ', seat_number
+    print 'Department: ', department
+    print ''
+
+# Fibonacci Series
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        print a,
+        a, b = b, a + b
+print 'Fibonacci series up to 5 terms:'
+fibonacci(5)
+print '\n'
+
+# Prime Numbers
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+print 'Prime numbers from 1 to 5:'
+for i in range(1, 6):
+    if is_prime(i):
+        print i,
+print '\n'
+
+# Armstrong Numbers
+def is_armstrong(n):
+    num_str = str(n)
+    power = len(num_str)
+    total = sum(int(d)**power for d in num_str)
+    return total == n
+print 'Armstrong numbers from 1 to 500:'
+for i in range(1, 501):
+    if is_armstrong(i):
+        print i,
+print '\n'
+
+
+1. What is Google App Engine (GAE)?
+o It's a Platform-as-a-Service (PaaS) that allows developers to deploy web
+applications on Google’s infrastructure.
+2. What is GAE Launcher?
+o A GUI tool used for running and testing GAE applications locally before
+deployment.
+3. What is the role of app.yaml?
+o It defines configuration settings like the runtime, app ID, handlers, and
+environment parameters.

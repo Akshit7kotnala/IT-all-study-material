@@ -1,8 +1,0 @@
-npm install -g @angular/cli
-
-ng new my-app
-
-cd my-app 
-npm i
-
-ng serve

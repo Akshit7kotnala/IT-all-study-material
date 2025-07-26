@@ -1,0 +1,144 @@
+Assignment 4: Create an Angular Application for User Registration, Login, and Profile Display
+
+🎯 Objective:
+
+Create an Angular application with:
+
+User Registration
+
+User Login
+
+Profile Component to show user data after login
+
+📱 Real-Life Analogy:
+
+Think of this like a gym membership system:
+
+Registration = You fill your form and submit it.
+
+Login = You enter your ID to access the gym.
+
+Profile = The gym shows your membership details.
+
+🛠 Technologies Used:
+
+Angular: Front-end framework
+
+Reactive Forms: For handling form inputs
+
+Routing: To switch between components
+
+LocalStorage: To store user data
+
+🔧 Step-by-Step Implementation:
+
+1. Setup Angular Project
+
+ng new user-auth-app
+cd user-auth-app
+ng generate component register
+ng generate component login
+ng generate component profile
+
+2. app-routing.module.ts
+
+const routes: Routes = [
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: '', redirectTo: '/register', pathMatch: 'full' }
+];
+
+3. RegisterComponent
+
+Create a form using FormBuilder
+
+On Submit: Save data to localStorage
+
+onSubmit() {
+  localStorage.setItem(this.form.value.email, JSON.stringify(this.form.value));
+  alert('Registration successful!');
+  this.router.navigate(['/login']);
+}
+
+4. LoginComponent
+
+Check credentials from localStorage
+
+On success, navigate to Profile
+
+login() {
+  const stored = localStorage.getItem(this.email);
+  if (stored) {
+    const user = JSON.parse(stored);
+    if (user.password === this.password) {
+      localStorage.setItem('loggedInUser', this.email);
+      this.router.navigate(['/profile']);
+    } else alert('Wrong password');
+  } else alert('User not found');
+}
+
+5. ProfileComponent
+
+Fetch logged-in user from localStorage
+
+ngOnInit() {
+  const email = localStorage.getItem('loggedInUser');
+  if (email) {
+    const user = JSON.parse(localStorage.getItem(email));
+    this.userData = user;
+  }
+}
+
+📚 Theory Viva Questions:
+
+What is Angular?
+
+Framework to build SPA (Single Page Applications).
+
+What is a component in Angular?
+
+Building blocks made of HTML, CSS, and TS logic.
+
+How does routing work in Angular?
+
+Routes link paths to components using RouterModule.
+
+What is localStorage and why do we use it?
+
+Browser storage to save data even after reload.
+
+What are Reactive Forms?
+
+Form technique using FormBuilder for validation and reactive updates.
+
+What is ngOnInit()?
+
+Angular lifecycle hook triggered when a component loads.
+
+How is data passed between components?
+
+Via services, localStorage, or @Input/@Output.
+
+What is the difference between localStorage and sessionStorage?
+
+localStorage: data persists after browser close
+
+sessionStorage: cleared on tab close
+
+🧠 Memory Trick:
+
+RLP Rule = Register → Login → Profile
+
+Think of it as a Gym entry: Fill form, Get pass, See your card
+
+✅ Summary:
+
+Register: Store user in localStorage
+
+Login: Match user credentials
+
+Profile: Display saved user data
+
+Use Angular CLI, Routing, Reactive Forms, and localStorage
+

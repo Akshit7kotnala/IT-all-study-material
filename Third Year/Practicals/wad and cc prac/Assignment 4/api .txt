@@ -1,0 +1,91 @@
+Viva Questions and Answers: CRUD API using Node.js, Express.js, and MongoDB
+
+🔹 Basics (Node.js & Express.js)
+
+What is an API?API (Application Programming Interface) is a set of rules that allow one software or component to interact with another. For example, an API lets your frontend (React/HTML) talk to the backend (Node.js).
+
+What are CRUD operations?CRUD stands for Create, Read, Update, and Delete — the four basic operations for managing data.
+
+What is Express.js and why is it used?Express.js is a Node.js framework used to build web servers easily. It provides routing, middleware, and tools to handle HTTP requests.
+
+How do you create a server using Express.js?By importing Express and using app.listen(PORT) to start listening for requests. Example:
+
+const express = require('express');
+const app = express();
+app.listen(3000, () => console.log('Server running'));
+
+What is routing in Express.js?Routing defines how the server responds to various HTTP requests (GET, POST, etc.).
+Example:
+
+app.get('/users', (req, res) => res.send('All users'));
+
+🔹 MongoDB Basics
+
+What is MongoDB?MongoDB is a NoSQL database that stores data in JSON-like documents (BSON).
+
+What is a collection and a document in MongoDB?
+
+Collection = Table (holds multiple documents)
+
+Document = Row (actual data in key-value format)
+
+How do you connect MongoDB with Node.js?Using Mongoose:
+
+mongoose.connect('mongodb://localhost/mydb', {...})
+
+What is Mongoose and why do we use it?Mongoose is an ODM (Object Data Modeling) library for MongoDB and Node.js. It simplifies data validation and modeling.
+
+What is a Schema in Mongoose?A Schema defines the structure of the documents. Example:
+
+const UserSchema = new mongoose.Schema({ name: String, age: Number });
+
+🔹 CRUD API Questions
+
+What does the Create API do in your project?It adds new assignment data to the database using a POST request.
+
+What HTTP method is used for creating data?POST.
+
+What does the Read API return?It returns the list of all assignments stored in the database.
+
+What is the purpose of the Update API?To modify existing assignment data using PUT or PATCH.
+
+How does the Delete API work in your code?It removes assignment data using a DELETE request based on ID.
+
+🔹 Code & Implementation
+
+How is data stored in MongoDB from your API?Data is first captured from the request body, then saved using new Model(data).save().
+
+What does app.use(express.json()) do?It parses incoming JSON requests and makes the data available in req.body.
+
+How do you handle errors in your APIs?Using try-catch blocks and sending appropriate status codes and messages.
+
+What is the difference between req.params and req.body?
+
+req.params: Used to get route parameters like ID
+
+req.body: Used to get data from POST/PUT requests
+
+How do you test your API?Using Postman or any REST client by sending requests to endpoints.
+
+🔹 Advanced Concepts
+
+What is RESTful API?A RESTful API follows REST principles using HTTP methods for operations and clear endpoints.
+
+What is the role of Postman in your project?To test APIs by sending requests and checking responses.
+
+How can you secure your API?Using authentication (JWT), validation, rate-limiting, and CORS.
+
+What status codes do you return in your responses?
+
+200: OK
+
+201: Created
+
+400: Bad Request
+
+404: Not Found
+
+500: Server Error
+
+How do you ensure only valid data is inserted into the database?Using Mongoose validation in Schema (e.g., required fields, types).
+

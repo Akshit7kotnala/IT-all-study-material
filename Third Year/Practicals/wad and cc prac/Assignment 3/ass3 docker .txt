@@ -1,0 +1,177 @@
+Assignment 3: Create Docker Container Environment (NVIDIA Docker or any other)
+
+🎯 Objective:
+
+Set up and run a Docker containerized environment using Docker or NVIDIA Docker, depending on GPU usage. Learn containerization basics, image pulling, container creation, and Dockerfile usage.
+
+🚀 Real-Life Analogy:
+
+Think of Docker like a tiffin box:
+
+You pack everything (food = code + dependencies) in one box (container)
+
+Wherever you go (any system), you just open it and eat (run it)
+
+Like food is guaranteed to taste the same, your app runs the same on any machine.
+
+🛠 Technologies Used:
+
+Docker: For creating containers
+
+Dockerfile: To automate image creation
+
+NVIDIA Docker (optional): To use GPU inside containers
+
+🔧 Step-by-Step Setup:
+
+✅ 1. Install Docker
+
+Download and install Docker from https://www.docker.com
+
+Run docker --version to confirm it's working
+
+✅ 2. (Optional) Install NVIDIA Container Toolkit
+
+For GPU access:
+
+Install NVIDIA drivers
+
+Run:
+
+sudo apt install nvidia-container-toolkit
+sudo systemctl restart docker
+
+✅ 3. Create Dockerfile
+
+# Base image
+FROM python:3.10
+
+# Set working directory
+WORKDIR /app
+
+# Copy code
+COPY . .
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Run the app
+CMD ["python", "app.py"]
+
+✅ 4. Build Image
+
+docker build -t my-python-app .
+
+✅ 5. Run Container
+
+docker run -d -p 5000:5000 my-python-app
+
+✅ 6. (Optional) Run with GPU
+
+docker run --gpus all -it my-python-app
+
+📄 Important Docker Commands:
+
+Command
+
+Meaning
+
+docker build -t name .
+
+Build Docker image
+
+docker run image
+
+Run container
+
+docker ps
+
+List running containers
+
+docker images
+
+Show images
+
+docker exec -it <id> bash
+
+Access running container
+
+docker stop <id>
+
+Stop a container
+
+📚 Viva/Assessment Questions:
+
+1. What is Docker?
+
+A platform to build, run, and ship applications in isolated containers.
+
+2. What is a Docker container?
+
+A lightweight, portable unit that includes app code and all dependencies.
+
+3. Difference: Container vs Virtual Machine?
+
+Container
+
+Virtual Machine
+
+Lightweight
+
+Heavy, includes OS
+
+Fast startup
+
+Slower startup
+
+Shares host OS
+
+Has separate OS
+
+4. What is a Dockerfile?
+
+A script file with steps to create a Docker image.
+
+5. What is an image?
+
+A blueprint of your container; contains app + OS + dependencies.
+
+6. What is the role of NVIDIA Docker?
+
+Allows GPU acceleration inside Docker containers.
+
+7. What is the use of CMD and RUN?
+
+RUN: Executes during image build.
+
+CMD: Executes when container runs.
+
+8. What is Docker Hub?
+
+Public repository to store and share Docker images.
+
+🧠 Memory Tricks:
+
+Docker = Delivery box
+
+Image = Recipe
+
+Container = Tiffin made from recipe
+
+Dockerfile = Cooking instructions
+
+🔁 Summary:
+
+Docker helps you containerize apps for consistent running on any machine.
+
+Dockerfile automates image creation.
+
+NVIDIA Docker is useful for GPU tasks like ML or image processing.
+
+Tip: Always break answers into:
+
+What it is?
+
+Why needed?
+
+Real-world example

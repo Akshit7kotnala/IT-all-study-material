@@ -1,0 +1,314 @@
+//Assignment 1 of dsa by Akshit_Kotnala 4202
+#include<bits/stdc++.h>
+using namespace std; 
+//defining of a struct;
+struct student {
+	int roll ; 
+	string name ;
+	float sgpa;
+};
+//function to display the students;
+ void display(student*s[],int i){
+	cout<<"\tRoll:"<<"\tName:"<<"\tsgpa:\n";
+	for(int j=0;j<i;j++){
+	    // for loop to print the characteristics of struct;
+	    cout<<s[j]->roll<< "\t";
+       		cout<<s[j]->name<<"\t";
+       		cout<<s[j]->sgpa<<endl;	
+   }}// function for linear search ;
+  void linear_search(student*s[],int i,float key){
+    int oops = 0;
+	for(int j=0;j<i;j++){
+	    //for loop to check every index of the no 
+	  if(key==s[j]->sgpa){	        
+// condition if key value is equl to sgpa value    
+		cout<<"\t Roll : "<<"\t Name : "<<"\t sgpa : \n ";		
+		cout<<s[j]->roll;
+		cout<< "\t"<<s[j]->name;
+		cout<< "\t"<<s[j]->sgpa<<endl;
+			oops = 1;}		}
+	if (oops==0){
+	    cout<<"Entry not found ";}}
+//function for binary search 
+void binarysearch(student *s[],int i){
+    string s1;
+    cout<<"Enter the name yu want to search :";
+    cin>>s1;
+	int st=0;
+	int en=i-1;
+	int mid=(st+en)/2;
+	bool flag=1;
+	while(st<=en){
+		//cout<<mid<<endl;
+		if(s[mid]->name==s1){
+            cout<<"NAME"<<" "<<"roll_no"<<" "<<"SGPA"<<" "<<endl;cout<<s[mid]->name<<" "<<s[mid]->roll<<" "<<s[mid]->sgpa<<endl;flag=0;return ;
+		}else if(s[mid]->name>s1){en=mid-1;}else{st=mid+1;}mid=(st+en)/2;}
+	if(flag)cout<<"NO STUDENT FOUND"<<endl;}
+
+
+
+
+
+
+
+
+    /*
+void binary_search(student *s[], int i ){
+    string key;
+	     cout<<"Enter name : ";
+	     cin>>key;
+	     
+	int lb=0;
+	int ub=i-1;
+	int flag =0;
+	while(lb<ub){
+		int mid_value = (lb+ub)/2;
+		if(s[mid_value]->name==key){
+			cout<<s[mid_value]->name<<"\t";
+			cout<<s[mid_value]->roll<<"\t";
+			cout<<s[mid_value]->sgpa<<endl;
+			flag=1;
+			break;
+		}
+		else if((s[mid_value]->name)>key){
+			ub=mid_value-1;
+			
+		}
+		else{
+			lb=mid_value+1;		
+		}
+		
+	}
+	if(flag==0){
+			cout<<" entry not found ";		
+		}
+	}
+	
+	*/
+	
+	
+	
+//Function for bubble sort 
+void bubble_sorting(student *s[],int i){
+		student *tmp;
+		int k;
+		for(k=0;k<i;k++){
+			for(int j=0;j<i-1-k;j++){
+				if(s[j]->roll>s[j+1]->roll){
+					tmp=s[j];
+					s[j]=s[j+1];
+					s[j+1]=tmp;	
+				}
+				
+			}	
+		}
+		
+	}
+	
+	
+	void insertion_sort(student *s[],int n){
+      for(int i=1;i<n;i++){
+	for(int j=i;j>0;j--){
+		if((s[j-1]->name)>s[j]->name){
+			//swap(s[j],s[j-1]);
+			student *temp=new student;
+					temp=s[j];
+					s[j]=s[j-1];
+					s[j-1]=temp;
+	
+		}
+	}
+      }
+}
+	
+	
+	
+	
+/*	
+//A function to sort the students from their name ;
+void insertion_sort(student *s[],int n){
+      for(int i=1;i<n;i++){
+      	student *temp;
+//student *temp=new student;
+		temp=s[i];
+//initialize the element that is needed to be sorted;
+      	int j = i-1;
+	for(;j>=0;j--){
+// iterate through loop ;
+		if((s[j]->name)>s[i]->name){
+//swap(s[j],s[j-1]);
+//shifting
+//student *temp=new student;
+//temp=s[j];
+//s[j]=s[j-1];
+//s[j-1]=temp;
+			s[j+1]=s[j];
+	
+		}
+		else {
+			//stop 
+			break;
+		}
+	}
+	s[j+1]=temp;
+      }
+}
+
+
+*/
+
+
+
+
+
+
+//Partion function for quick sort;
+int partition(student *s[],int start,int end){
+	float pivot=s[start]->sgpa;
+	int cnt =0;
+	for(int i= start+1;i<=end;i++){
+		if((s[i]->sgpa)<=pivot){
+			cnt++;
+		}
+	}
+	int pivot_index =start+cnt;
+	//place p at right point;
+	swap((s[pivot_index]),(s[start]));
+	
+	//left and right part assemble;
+	 int i = start ; int j = end ;
+	 while (i<pivot_index and j>pivot_index){
+	 	while((s[i]->sgpa)<pivot){
+	 		i++;
+	 	}
+	 	while((s[j]->sgpa)>pivot){
+	 		j--;
+	 	}
+	 	if(i<pivot_index and j>pivot_index){
+	 		swap(s[i++],s[j--]);
+	 	}
+	 	
+	 }
+	 return pivot_index;
+}
+//quick sort function;
+void qsort_ascending(student *s[],int start,int end){
+	//base case 
+	if(start>=end){
+		return;
+	}
+	int p = partition(s,start,end);
+	qsort_ascending(s,start,p-1);
+	qsort_ascending(s,p+1,end);
+}
+//quick sort finish;
+
+
+
+
+
+
+
+
+//quick sort for descending order ;
+int hightolow(student *s[],int l,int h){
+	float pivot=s[h]->sgpa;
+	int i=l-1;
+	//c(pivot);
+	for(int j=l;j<h;j++){
+		//c(s[j]);
+		if((s[j]->sgpa)>pivot){
+			i++;
+			swap(s[i],s[j]);
+		}
+	}//c(i);
+	swap(s[i+1],s[h]);
+	return (i+1);
+}
+void qsort_descending(student *s[],int l,int h){
+	if(l<h){
+		int p=hightolow(s,l,h);
+		 qsort_descending(s,l,p-1);
+		 qsort_descending(s,p+1,h);
+
+	}}
+
+
+
+
+
+//
+
+int main(){
+	student *s[60];
+	int i =0;
+	int n;
+	int k;
+	do{
+		s[i]= new student;
+		cout<<endl<<"Roll no :"<<endl;
+		cin>>s[i]->roll;
+		cout<<"Name :"<<endl;
+		cin>>s[i]->name;
+		cout<<"S.G.P.A : "<<endl;
+		cin>>s[i]->sgpa;
+		i++;
+		cout<<"Press 1 if you want to enter another name or press another no if you want to exit ";
+		cin>>n;
+	} while(n==1);
+	
+	do {
+	cout<<"Prees nos from MENU (what you want to do )"<<endl;
+    cout<<"1 . display"<<endl;
+	cout<<"2 . liner_search"<<endl;
+	cout<<"3 . Binary_search"<<endl;
+	cout<<"4 . Bubble sort for roll no"<<endl;
+	cout<<"5 . Insertion sort for names"<<endl;
+	cout<<"6 . Quick sort for S.G.P.A from lowest to highest"<<endl;
+	cout<<"7 . Quick sort for S.G.P.A from highest to lowest"<<endl;
+	cin>>k;
+	switch(k){
+		case 1 :
+		     display(s,i);
+		    break;
+		case 2 :
+		    float key ;
+		    cout<<"Enter the s.g.p.a needed to be found";
+		    cin>>key;
+		    linear_search(s,i,key);
+		    break;
+        case 3 :
+            insertion_sort(s,i);
+            binarysearch(s,i);
+            break;
+            case 4 :
+            bubble_sorting(s,i);
+            display(s,i);
+            break;
+            case 5 :
+            insertion_sort(s,i);
+            display(s,i);
+            break;
+            case 6 :
+            qsort_ascending(s,0,i-1) ;
+            display(s,i);
+            break;
+            case 7 :
+            qsort_descending(s,0,i-1);
+            display(s,i);
+            break;
+           default:
+          cout<<"Sorry wrong input selected "<<endl;
+          break;
+		
+	}
+	    
+	}while(k<8 and k>0);
+	
+	
+	
+	
+	
+	
+	
+}

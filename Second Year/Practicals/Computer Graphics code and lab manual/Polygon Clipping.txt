@@ -1,0 +1,219 @@
+#include<windows.h> // Header file for Windows API
+#include <stdio.h> // Standard input-output header file
+#include<iostream> // Standard input-output stream header file
+#include<GL/glut.h> // OpenGL Utility Toolkit header file
+#include<math.h> // Math functions header file
+#include<bits/stdc++.h> // C++ Standard Template Library (STL) header file
+
+using namespace std; // Using the standard namespace
+
+// Global variables declaration
+int result; // Variable to store the result of clipping
+int xmin, ymin, xmax, ymax, pt[30][2], w[30][2], n = 0, flg = 0; // Variables for clipping coordinates, polygon points, and flags
+
+// Function to clip the left edge
+int leftClip(int limit, int xm)
+{
+    // Variable declaration
+    int i, j = 0, x1, y1, x2, y2;
+    float m; // Slope of the line
+
+    // Loop through each point of the polygon
+    for (i = 0; i < limit; i++)
+    {
+        // Extract coordinates of two consecutive points
+        x1 = pt[i][0];
+        y1 = pt[i][1];
+        x2 = pt[(i + 1) % limit][0];
+        y2 = pt[(i + 1) % limit][1];
+
+        // Calculate slope only if x2 is not equal to x1 (to avoid division by zero)
+        if (x2 - x1)
+            m = (y2 - y1) * 1.0 / (x2 - x1);
+
+        // Check and apply clipping conditions
+        if (x1 < xm && x2 < xm)
+            continue;
+        if (x1 > xm && x2 > xm)
+        {
+            w[j][0] = x2;
+            w[j++][1] = y2;
+            continue;
+        }
+        if (x1 > xm && x2 < xm)
+        {
+            w[j][0] = xm;
+            w[j++][1] = y1 + m * (xm - x1);
+            continue;
+        }
+        if (x1 < xm && x2 > xm)
+        {
+            w[j][0] = xm;
+            w[j++][1] = y1 + m * (xm - x1);
+            w[j][0] = x2;
+            w[j++][1] = y2;
+        }
+    }
+
+    // Copy the clipped points back to the original array
+    for (i = 0; i < j; i++)
+    {
+        pt[i][0] = w[i][0];
+        pt[i][1] = w[i][1];
+        w[i][0] = w[i][1] = 0;
+    }
+
+    // If number of points reduced due to clipping, set remaining points to zero
+    if (j < limit)
+        for (; i < limit; i++)
+            pt[i][0] = pt[i][1] = 0;
+
+    // Return the number of points after clipping
+    return j;
+}
+
+// Similar functions for clipping other edges (top, right, bottom) are implemented here
+// (topClip, rightClip, bottomClip)
+
+// Function to display OpenGL window
+void display(void)
+{
+}
+
+// Initialization function
+void init()
+{
+    // Set background color and clear buffer
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glColor3f(1.0, 0.0, 0.0);
+    glPointSize(2.0);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0, 700, 0, 700); // Set up 2D orthographic projection
+}
+
+// Menu function for handling user interaction
+void menu(int c)
+{
+    // Perform different actions based on user selection
+    if (c == 1)
+    {
+        // Execute clipping algorithm
+        result = leftClip(n, xmin);
+        result = topClip(result, ymin);
+        result = rightClip(result, xmax);
+        result = bottomClip(result, ymax);
+    }
+    if (c == 2)
+    {
+        // Display the clipped polygon
+        glClear(GL_COLOR_BUFFER_BIT);
+        // Draw clipping window
+        glColor3f(0.0, 0.0, 0.0);
+        glBegin(GL_POINTS);
+        glVertex2i(0, 0);
+        glEnd();
+        glFlush();
+        glColor3f(1.0, 1.0, 0.0);
+        glBegin(GL_LINE_LOOP);
+        glVertex2i(xmin, ymin);
+        glVertex2i(xmax, ymin);
+        glVertex2i(xmax, ymax);
+        glVertex2i(xmin, ymax);
+        glEnd();
+        glFlush();
+        // Draw clipped polygon
+        for (int i = 0; i < result; i++)
+        {
+            glColor3f(0.0, 0.0, 1.0);
+            glBegin(GL_LINE_STRIP);
+            glVertex2i(pt[i][0], pt[i][1]);
+            glVertex2i(pt[(i + 1) % result][0], pt[(i + 1) % result][1]);
+            glEnd();
+            glFlush();
+        }
+    }
+}
+
+// Mouse function to handle mouse clicks
+void mouse(int button, int state, int cx, int cy)
+{
+    if (state == GLUT_DOWN)
+    {
+        // When left button is clicked, add points to the polygon
+        if (button == GLUT_LEFT_BUTTON)
+        {
+            pt[n][0] = cx;
+            pt[n][1] = 700 - cy;
+            n++;
+            if (n > 1)
+            {
+                glColor3f(1.0, 0.0, 0.0);
+                glBegin(GL_LINE_STRIP);
+                glVertex2i(pt[n - 2][0], pt[n - 2][1]);
+                glVertex2i(pt[n - 1][0], pt[n - 1][1]);
+                glEnd();
+                glFlush();
+            }
+        }
+        // When right button is clicked, set clipping window coordinates
+        if (button == GLUT_RIGHT_BUTTON)
+        {
+            if (flg == 0)
+            {
+                cout << "RIGHT CLICK 1 - DONE" << endl;
+                xmin = cx;
+                ymin = 700 - cy;
+                flg++;
+            }
+            else
+            {
+                cout << "RIGHT CLICK 2 - DONE" << endl;
+                xmax = cx;
+                ymax = 700 - cy;
+                // Draw the clipping window
+                glColor3f(1.0, 1.0, 0.0);
+                glBegin(GL_LINE_LOOP);
+                glVertex2i(xmin, ymin);
+                glVertex2i(xmax, ymin);
+                glVertex2i(xmax, ymax);
+                glVertex2i(xmin, ymax);
+                glEnd();
+                glFlush();
+            }
+        }
+    }
+}
+
+// Main function
+int main(int argc, char *argv[])
+{
+    // Initialize GLUT
+    glutInit(&argc, argv);
+    glutInitWindowSize(700, 700);
+    glutInitWindowPosition(500, 50);
+    glutCreateWindow(" COHEN SUTHERLAND POLYGON CLIPPING ");
+    cout << "PLEASE FOLLOW THESE STEPS:" << endl;
+    cout << "[1] MAKE POLYGON by USING LEFT BUTTON CLICK" << endl;
+    cout << "[2] SELECT WINDOW COORDINATES by USING RIGHT BUTTON CLICK: where" << endl;
+    cout << "FIRST RIGHT CLICK - SELECT Xmin and Ymin" << endl;
+    cout << "SECOND RIGHT CLICK - SELECT Xmax and Ymax" << endl
+         << endl;
+    cout << "[3]In MENU, please first execute and then clip" << endl
+         << endl;
+    init();
+
+    // Set callback functions
+    glutMouseFunc(mouse);
+    glutDisplayFunc(display);
+    glutCreateMenu(menu);
+    glutAddMenuEntry("EXECUTE", 1);
+    glutAddMenuEntry("SHOW CLIPPED", 2);
+    glutAttachMenu(GLUT_MIDDLE_BUTTON);
+
+    // Start main loop
+    glutMainLoop();
+    return 0;
+}

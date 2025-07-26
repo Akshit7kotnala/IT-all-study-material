@@ -1,0 +1,81 @@
+Which Car you want to See?- 
+
+	1.Small Car
+	2.Sedan Car
+	3.Luxary Car
+	4.Exit
+
+1
+
+Company- FGHJ
+Car- fghj
+Rough Budget(in Lakhs)- 45
+Company- FGHJ
+Name of Car- fghj
+Color- Black/White/Orange/Red
+Fuel- Petrol
+Gears- Manual
+Types of Tyres- Alloy Wheels
+Airbags- Yes
+Back Wiper- Yes
+Side Mirror- Two
+Touch Screen Music Player- Yes
+Which Car you want to See?- 
+
+	1.Small Car
+	2.Sedan Car
+	3.Luxary Car
+	4.Exit
+3
+
+Company- audi
+Car- audi
+Rough Budget(in Lakhs)- 567
+Company- audi
+Name of Car- audi
+Color- Black/White/Orange/Red
+Fuel- Diesel
+Gears- Auto
+Types of Tyres- Alloy Wheels
+Airbags- YES
+Back Wiper- YES
+Side Mirror- Two
+Touch Screen Music Player- YES
+Roof Window- YES
+Automotive Garbage Cans- Yes
+Automotice Air Freshner- Yes
+Button Start- Yes
+Which Car you want to See?- 
+
+	1.Small Car
+	2.Sedan Car
+	3.Luxary Car
+	4.Exit
+2
+
+Company- ashjk
+Car- hjk
+Rough Budget(in Lakhs)- 345
+Company- ashjk
+Name of Car- hjk
+Color- Black/White/Orange/Red
+Fuel- Petrol/Diesel
+Gears- Auto/Manual
+Types of Tyres- Alloy Wheels
+Airbags- YES
+Back Wiper- YES
+Side Mirror- Two
+Touch Screen Music Player- YES
+Roof Window- Yes
+Which Car you want to See?- 
+
+	1.Small Car
+	2.Sedan Car
+	3.Luxary Car
+	4.Exit
+4
+
+
+-----------------------------------
+
+Process finished with exit code 0

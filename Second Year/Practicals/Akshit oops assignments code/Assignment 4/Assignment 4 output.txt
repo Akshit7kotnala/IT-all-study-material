@@ -1,0 +1,81 @@
+-----Area Calculator-----
+
+Enter
+1.Calculate Area of Triangle.
+2.Calculate Area of Reactangle.
+3.Calculate Area of Pentagon.
+4.Invalid Input...
+
+Enter Your choice : 1
+
+Enter Triangle's Dimension : 
+Enter Base : 23
+Enter Height : 45
+
+Area of Triangle : 517.5 sq. units 
+
+
+-----Area Calculator-----
+
+Enter
+1.Calculate Area of Triangle.
+2.Calculate Area of Reactangle.
+3.Calculate Area of Pentagon.
+4.Invalid Input...
+
+Enter Your choice : 2
+
+Enter Rectangle's Dimension : 
+Enter Width : 78
+Enter Height : 78
+
+Area of Rectangle : 6084.0 sq. units 
+
+
+-----Area Calculator-----
+
+Enter
+1.Calculate Area of Triangle.
+2.Calculate Area of Reactangle.
+3.Calculate Area of Pentagon.
+4.Invalid Input...
+
+Enter Your choice : 3
+
+Enter Pentagons  Dimension : 
+Enter side length : 98
+Enter distance from the center of sides to the center of pentagon : 34
+
+Area of Pentagon is  : 8330.0 sq. units 
+
+
+-----Area Calculator-----
+
+Enter
+1.Calculate Area of Triangle.
+2.Calculate Area of Reactangle.
+3.Calculate Area of Pentagon.
+4.Invalid Input...
+
+Enter Your choice : 4
+
+Invalid Input..
+
+
+-----Area Calculator-----
+
+Enter
+1.Calculate Area of Triangle.
+2.Calculate Area of Reactangle.
+3.Calculate Area of Pentagon.
+4.Invalid Input...
+
+Enter Your choice : 8
+
+-----Area Calculator-----
+
+Enter
+1.Calculate Area of Triangle.
+2.Calculate Area of Reactangle.
+3.Calculate Area of Pentagon.
+4.Invalid Input...

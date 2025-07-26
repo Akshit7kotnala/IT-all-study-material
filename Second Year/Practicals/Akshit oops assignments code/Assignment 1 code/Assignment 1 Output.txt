@@ -1,0 +1,65 @@
+//Output 1 
+Enter the Complex number in a+bi format : 
+Enter real part of First Number: a : 2
+Enter img part of First Number: b : 3
+Enter real part of Second Number: a : 4
+Enter img part of Second Number: b : 5
+
+Press 1: To display the complex numbers
+Press 2: For Addition
+Press 3: For Subtraction
+Press 4: For Multiplication
+Press 5: For Division
+Press any other: For exit
+1
+Option for displaying complex selected
+First Complex Numbers =(2.0)+(3.0)i
+Second Complex Numbers =(4.0)+(5.0)i
+Press 1: To display the complex numbers
+Press 2: For Addition
+Press 3: For Subtraction
+Press 4: For Multiplication
+Press 5: For Division
+Press any other: For exit
+2
+Option for adding the complex numbers selected
+Addition of Complex Numbers =(6.0)+(8.0)i
+Press 1: To display the complex numbers
+Press 2: For Addition
+Press 3: For Subtraction
+Press 4: For Multiplication
+Press 5: For Division
+Press any other: For exit
+3
+Option for subtracting the complex numbers selected
+The Difference is: 
+Substraction of Complex Numbers =(-2.0)+(-2.0)i
+Press 1: To display the complex numbers
+Press 2: For Addition
+Press 3: For Subtraction
+Press 4: For Multiplication
+Press 5: For Division
+Press any other: For exit
+4
+Option for multiplying the complex numbers selected
+The Product is: 
+Multiplication of Complex Numbers =(-7.0)+(22.0)i
+Press 1: To display the complex numbers
+Press 2: For Addition
+Press 3: For Subtraction
+Press 4: For Multiplication
+Press 5: For Division
+Press any other: For exit
+5
+Option for dividing the complex numbers selected
+The Quotient is: 
+Division of Complex Numbers =(0.5609756)+(0.048780486)i
+Press 1: To display the complex numbers
+Press 2: For Addition
+Press 3: For Subtraction
+Press 4: For Multiplication
+Press 5: For Division
+Press any other: For exit
+6
+
+Process finished with exit code 0

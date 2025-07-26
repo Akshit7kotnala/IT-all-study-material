@@ -1,0 +1,167 @@
+//Assignment No 1 by Akshit ;
+import java.util.*;
+// Things to ask to maam =
+// why we use a complex no fuction where we have initialized real and float no
+// to be zero when we can directly pass them in diff function named float
+class Complex_No {
+    float real, img;
+ //creation of a class inside it defining 2 parts of the object complex no that is real
+    // and imaginary part
+   public Complex_No() {
+//intializing 2 float real with zero after that we can store valur in them;
+
+        real = 0;
+        img = 0;
+    }
+
+    public Complex_No(float real , float img) {
+// passing function with 2 nos in it
+        this.real =real;
+        this.img = img;
+    }
+
+    public void Display(Complex_No C1, Complex_No C2) {
+        //created a display function in it which will print my two complex nos
+        System.out.println("First Complex Numbers =(" + C1.real + ")+(" + C1.img + ")i");
+
+        System.out.println("Second Complex Numbers =(" + C2.real + ")+(" + C2.img + ")i");
+    }
+
+    public void AddNumbers(Complex_No C1, Complex_No C2) {
+        // created a add function to add two diff nos in it with creating a float
+        // and then cout them in my main function
+        float real, img;
+        real = (C1.real + C2.real);
+        img = (C1.img + C2.img);
+        System.out.println("Addition of Complex Numbers =(" + real + ")+(" + img + ")i");
+    }
+
+    public void SubNumbers(Complex_No C1, Complex_No C2) {
+        // created a Subtraction function to subtract two diff nos in it with creating a float
+        // and then cout them in my main function
+        float real, img;
+        real = (C1.real - C2.real);
+        img = (C1.img - C2.img);
+        System.out.println("Substraction of Complex Numbers =(" + real + ")+(" + img + ")i");
+    }
+
+    public void MultiNumbers(Complex_No C1, Complex_No C2) {
+        // created a Multiplicative  function to subtract two diff nos in it with creating a float
+        // and then miultiply them in my main function
+        float real, img;
+        real = (C1.real * C2.real - C1.img * C2.img);
+        img = (C1.real * C2.img + C1.img * C2.real);
+        System.out.println("Multiplication of Complex Numbers =(" + real + ")+(" + img + ")i");
+    }
+
+    public void DivNumbers(Complex_No C1, Complex_No C2) {
+        float real, img;
+
+       // first i created a if condition if my second complex no is 0 then it will print not divisible
+        if (C2.real == 0 && C2.img==0){
+            System.out.println("Division not possible");
+        }
+        else {
+        real = (C1.real * C2.real + C1.img * C2.img) / (C2.real * C2.real + C2.img * C2.img);
+        img = (C1.img * C2.real - C1.real * C2.img) / (C2.real * C2.real + C2.img * C2.img);
+        System.out.println("Division of Complex Numbers =(" + real + ")+(" + img + ")i");
+    }}
+}
+
+public class Main {
+    public static void main(String[] args) {
+        float num1, num2;
+        float sum1,sum2;
+        float ans1,ans2;
+        Complex_No aks = new Complex_No();
+        Scanner Sc = new Scanner(System.in);
+        System.out.println("Enter the Complex number in a+bi format : ");
+
+        System.out.print("Enter real part of First Number: a : ");
+        num1 = Sc.nextFloat();
+        System.out.print("Enter img part of First Number: b : ");
+        num2 = Sc.nextFloat();
+        Complex_No no1 = new Complex_No(num1, num2);
+
+        System.out.print("Enter real part of Second Number: a : ");
+        sum1 = Sc.nextFloat();
+        System.out.print("Enter img part of Second Number: b : ");
+        sum2 = Sc.nextFloat();
+        Complex_No no2 = new Complex_No(sum1, sum2);
+       // Sc.close();
+        System.out.println();
+        int choice;
+
+
+        //choice = Sc.nextInt();
+        do {
+            //choice = Sc.nextInt();
+            System.out.println("Press 1: To display the complex numbers");
+            System.out.println("Press 2: For Addition\nPress 3: For Subtraction");
+            System.out.println("Press 4: For Multiplication\nPress 5: For Division\nPress any other: For exit");
+
+            choice = Sc.nextInt();
+            switch (choice) {
+
+
+                case 1:
+                    System.out.println("Option for displaying complex selected");
+                    aks.Display(no1, no2);
+                    break;
+
+                case 2:
+                    //Complex_No add = new Complex_No();
+                    System.out.println("Option for adding the complex numbers selected");
+                    aks.AddNumbers(no1, no2);
+                    break;
+
+                case 3:
+                    //complex sub = subtraction(c1, c2);
+                    System.out.println("Option for subtracting the complex numbers selected");
+                    System.out.println("The Difference is: ");
+                    aks.SubNumbers(no1, no2);
+                    break;
+
+                case 4:
+                   // complex mul = c1.multiplication(c1, c2);
+                    System.out.println("Option for multiplying the complex numbers selected");
+                    System.out.println("The Product is: ");
+                    aks.MultiNumbers(no1, no2);
+                    break;
+
+                case 5:
+                   if(no2.real ==0 && no2.img==0){
+                       System.out.println("Enter diff as division not possible  ");
+                       System.out.print("Enter real part of Second Number: a : ");
+                       ans1 = Sc.nextFloat();
+                       System.out.print("Enter img part of Second Number: b : ");
+                       ans2 = Sc.nextFloat();
+                       Complex_No no3 = new Complex_No(ans1, ans2);
+                       aks.DivNumbers(no1, no3);
+                       System.out.println("Option for dividing the complex numbers selected");
+                       System.out.println("The Quotient is: ");
+                   }
+                   else {
+                       System.out.println("Option for dividing the complex numbers selected");
+                       System.out.println("The Quotient is: ");
+                    aks.DivNumbers(no1, no2);}
+                    break;
+
+                default:
+                    break;
+            }
+        }while(choice<=5 && choice>0);
+
+
+
+
+
+
+        //aks.Display(no1, no2);
+       // System.out.println();
+     //   aks.AddNumbers(no1, no2);
+       // aks.SubNumbers(no1, no2);
+       // aks.MultiNumbers(no1, no2);
+        //aks.DivNumbers(no1, no2);
+    }
+}

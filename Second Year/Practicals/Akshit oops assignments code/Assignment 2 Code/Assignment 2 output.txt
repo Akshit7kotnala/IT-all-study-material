@@ -1,0 +1,93 @@
+Enter
+1.Order Book
+2.Order Magazine
+3.Total Book Sell
+4.Total Magazine Sell
+5.Total Publication Sell
+6.Exit
+
+Enter Your Choice : 1
+
+Enter Author's Name : Akshit 
+Enter Title : HJGJK
+Enter Price : 45
+Enter Number of Copies : 78
+Restock the values of book to 1000 and enter the values again
+Enter Author's Name : Akshit 
+Enter Title : HJKL
+Enter Price : 54
+Enter Number of Copies : 78
+
+Ordered Book : Akshit 
+Total Amount : 4212.0
+
+Enter
+1.Order Book
+2.Order Magazine
+3.Total Book Sell
+4.Total Magazine Sell
+5.Total Publication Sell
+6.Exit
+
+Enter Your Choice : 2
+
+Enter Price : 34
+Enter Number of Copies : 56
+Enter Author's Name : AHJK
+Restock the values of magazine to 1000 and enter the values again
+Enter Price : 56
+Enter Number of Copies : 56
+Enter Author's Name : akhsit
+
+Ordered Magazine :null
+Total Amount : 3136.0
+
+Enter
+1.Order Book
+2.Order Magazine
+3.Total Book Sell
+4.Total Magazine Sell
+5.Total Publication Sell
+6.Exit
+
+Enter Your Choice : 3
+
+Total Book Sell : 4212.0
+Enter
+1.Order Book
+2.Order Magazine
+3.Total Book Sell
+4.Total Magazine Sell
+5.Total Publication Sell
+6.Exit
+
+Enter Your Choice : 4
+
+Total Magazine Sell : 3136.0
+Enter
+1.Order Book
+2.Order Magazine
+3.Total Book Sell
+4.Total Magazine Sell
+5.Total Publication Sell
+6.Exit
+
+Enter Your Choice : 5
+
+Total Magazine Sell : 3136.0
+Total Book Sell : 4212.0
+
+Total Sell by the publication house: 7348.0
+Enter
+1.Order Book
+2.Order Magazine
+3.Total Book Sell
+4.Total Magazine Sell
+5.Total Publication Sell
+6.Exit
+
+Enter Your Choice : 6
+
+Exiting The Program..
+
+Process finished with exit code 0

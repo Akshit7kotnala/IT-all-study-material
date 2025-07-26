@@ -1,0 +1,131 @@
+#include<GL/glut.h>     // Include the GLUT header file
+#include<iostream>      // Include the standard I/O stream header
+#include <stdlib.h>     // Include the standard library header
+#include<math.h>        // Include the math library header
+
+using namespace std;   // Use the standard namespace
+
+#define w 500          // Define the width of the window
+#define h 500          // Define the height of the window
+
+GLint xc, yc, xr, yr;   // Define variables to store coordinates
+
+void setpixel(GLint x, GLint y)    // Function to set a pixel at given coordinates
+{
+    glColor3f(1.0, 0.0, 0.0);      // Set color to red
+    glBegin(GL_POINTS);             // Begin drawing points
+    glVertex2f(x, y);               // Set vertex at given coordinates
+    glEnd();                        // End drawing points
+    glFlush();                      // Flush OpenGL commands
+}
+
+void initialize()   // Initialize OpenGL settings
+{
+    glClearColor(1.0, 1.0, 0.0, 0.0);   // Set clear color to yellow
+    glClear(GL_COLOR_BUFFER_BIT);       // Clear the color buffer
+    glMatrixMode(GL_PROJECTION);        // Set the matrix mode
+    glLoadIdentity();                   // Load the identity matrix
+    gluOrtho2D(-w / 2, w / 2, -h / 2, h / 2);   // Set the orthogonal projection
+}
+
+void choice()   // Function to draw axes
+{
+    int i;
+    glPointSize(2.0);
+    for (i = -w; i < w; i++)
+    {
+        setpixel(0, i);  setpixel(i, 0);
+    }
+}
+
+class Circle   // Define a class for circle drawing algorithms
+{
+public:
+    void drawCircle(int xc, int yc, int x, int y)   // Function to draw circle points
+    {
+        setpixel(xc + x, yc + y);  setpixel(xc - x, yc + y);
+        setpixel(xc + x, yc - y);  setpixel(xc - x, yc - y);
+        setpixel(xc + y, yc + x);  setpixel(xc - y, yc + x);
+        setpixel(xc + y, yc - x);  setpixel(xc - y, yc - x);
+    }
+
+    void BresenhamCircle()   // Bresenham's circle drawing algorithm
+    {
+        int r = sqrt(((xc - xr) * (xc - xr)) + ((yc - yr) * (yc - yr)));  // Calculate radius
+        int x = 0, y = r;   // Initialize x and y
+        int d = 3 - 2 * r;  // Initialize decision parameter
+        drawCircle(xc, yc, x, y);  // Draw initial points
+
+        while (y >= x)   // Iterate until y is greater than or equal to x
+        {
+            x++;   // Increment x
+            if (d > 0)   // If decision parameter is greater than 0
+            {
+                y--;   // Decrement y
+                d = d + 4 * (x - y) + 10;   // Update decision parameter
+            }
+            else   // If decision parameter is less than or equal to 0
+            {
+                d = d + 4 * x + 6;   // Update decision parameter
+            }
+            drawCircle(xc, yc, x, y);   // Draw circle points
+        }
+    }
+};
+
+Circle obj;   // Create an object of the Circle class
+
+void keyboard(unsigned char key, int x, int y)   // Keyboard callback function
+{
+    if (key == 27)   // If Esc key is pressed
+    {
+        exit(0);   // Exit the program
+    }
+}
+
+void menu(int item)   // Menu callback function
+{
+    if (item == 1)   // If "CIRCLE" is selected from the menu
+    {
+        obj.BresenhamCircle();   // Draw the circle using Bresenham's algorithm
+    }
+    if (item == 2)   // If "EXIT" is selected from the menu
+    {
+        exit(0);   // Exit the program
+    }
+}
+
+void mouse(int button, int state, int x, int y)   // Mouse callback function
+{
+    if (state == GLUT_DOWN)   // If mouse button is pressed
+    {
+        if (button == GLUT_LEFT_BUTTON)   // If left mouse button is pressed
+        {
+            xc = x - 250;  yc = 250 - y;   // Get center coordinates
+            glPointSize(2.0);  setpixel(xc, yc);   // Set center pixel
+        }
+        else   // If right mouse button is pressed
+        {
+            xr = x - 250;  yr = 250 - y;   // Get radius coordinates
+            glPointSize(2.0);  setpixel(xr, yr);   // Set radius pixel
+        }
+    }
+}
+
+int main(int argc, char** argv)   // Main function
+{
+    glutInit(&argc, argv);   // Initialize GLUT
+    glutInitWindowSize(w, h);   // Set initial window size
+    glutInitWindowPosition(100, 0);   // Set initial window position
+    glutCreateWindow("Assignment 2");   // Create a window with the specified title
+    initialize();   // Initialize OpenGL settings
+    glutDisplayFunc(choice);   // Set the display function
+    glutMouseFunc(mouse);   // Set the mouse callback function
+    glutKeyboardFunc(keyboard);   // Set the keyboard callback function
+    glutCreateMenu(menu);   // Create a menu
+    glutAddMenuEntry("CIRCLE", 1);   // Add "CIRCLE" option to the menu
+    glutAddMenuEntry("EXIT", 2);   // Add "EXIT" option to the menu
+    glutAttachMenu(GLUT_MIDDLE_BUTTON);   // Attach the menu to the middle mouse button
+    glutMainLoop();   // Enter the GLUT main event loop
+    return 0;   // Return 0 to indicate successful completion
+}

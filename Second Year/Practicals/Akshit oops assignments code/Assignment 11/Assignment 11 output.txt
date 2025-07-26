@@ -1,0 +1,43 @@
+1. Set Credit Card Payment
+2. Set PayPal Payment
+3. Set BitCoin Payment
+4. Checkout
+5. Exit
+Enter your choice: 1
+Enter Credit Card Number: 234
+Enter Expiry Date: 23
+Enter CVV: 4556
+Credit Card Payment Set.
+1. Set Credit Card Payment
+2. Set PayPal Payment
+3. Set BitCoin Payment
+4. Checkout
+5. Exit
+Enter your choice: 2
+Enter PayPal Email: ajk
+PayPal Payment Set.
+1. Set Credit Card Payment
+2. Set PayPal Payment
+3. Set BitCoin Payment
+4. Checkout
+5. Exit
+Enter your choice: 3
+Enter BitCoin Wallet Address: hjk
+BitCoin Payment Set.
+1. Set Credit Card Payment
+2. Set PayPal Payment
+3. Set BitCoin Payment
+4. Checkout
+5. Exit
+Enter your choice: 4
+Enter the amount to checkout: 4567
+Paid 4567.0 using BitCoin.
+1. Set Credit Card Payment
+2. Set PayPal Payment
+3. Set BitCoin Payment
+4. Checkout
+5. Exit
+Enter your choice: 5
+Exiting the program. Goodbye!
+
+Process finished with exit code 0

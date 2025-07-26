@@ -1,0 +1,108 @@
+#include<iostream>       // Includes the standard input/output stream library for input/output operations
+#include<math.h>         // Includes the math library for mathematical functions
+#include<GL/glut.h>      // Includes the GLUT library for OpenGL utility toolkit functions
+
+using namespace std;    // Using the standard namespace for standard library functions
+
+float inc=1.0;           // Variable to store the increment value for the pendulum swing
+float angle=135;         // Variable to store the initial angle of the pendulum
+
+void drawCircle(float segments,float radius,float sx,float sy)   // Function to draw a circle with given parameters
+{
+    glBegin(GL_LINE_LOOP);  // Begin drawing a line loop (a series of connected line segments)
+    for(int i=0;i<segments;i++)  // Loop through the specified number of segments
+    {
+        float theta=2.0*3.142*float(i)/float(segments); // Calculate the current angle in radians
+        float x=radius*cos(theta);   // Calculate the x-coordinate of the point on the circle
+        float y=radius*sin(theta);   // Calculate the y-coordinate of the point on the circle
+        glVertex2f(x+sx,y+sy);       // Specify a vertex at the calculated position
+    }
+    glEnd();  // End drawing the line loop
+}
+
+void draw(float x1,float y1,float angle)   // Function to draw the clock and pendulum
+{
+    float segments=100;     // Number of segments to approximate the circle
+    float radius=6.0;       // Radius of the clock circle
+
+    //Drawing Clock main Circle
+    glLineWidth(4);        // Set the line width for drawing
+    glColor3f(1,0,0);      // Set the color for drawing (red)
+    drawCircle(segments,radius,x1,y1);  // Call the drawCircle function to draw the clock circle
+
+    //Drawing Minute Line
+    glColor3f(1,1,0);      // Set the color for drawing (yellow)
+    glLineWidth(2);       // Set the line width for drawing
+    glBegin(GL_LINES);    // Begin drawing lines
+    glVertex2f(x1,y1);    // Specify the starting point of the line
+    glVertex2f(x1,(radius/3.0)*2.0);  // Specify the ending point of the line
+    glEnd();              // End drawing lines
+
+    //Drawing Hour Line
+    glColor3f(1,0,0);      // Set the color for drawing (red)
+    glLineWidth(2);       // Set the line width for drawing
+    glBegin(GL_LINES);    // Begin drawing lines
+    glVertex2f(x1,y1);    // Specify the starting point of the line
+    glVertex2f(radius/3.0,radius/3.0);  // Specify the ending point of the line
+    glEnd();              // End drawing lines
+
+    //Drawing Pendulum Circle
+    double radians=angle*3.142/180;  // Convert the angle to radians
+    float x2=(radius*3.4)*cos(radians);  // Calculate the x-coordinate of the pendulum circle
+    float y2=(radius*3.4)*sin(radians);  // Calculate the y-coordinate of the pendulum circle
+    float radius2=radius/3.0;            // Radius of the pendulum circle
+
+    glColor3f(0,0,1);      // Set the color for drawing (blue)
+    drawCircle(segments,radius2,x2,y2);  // Call the drawCircle function to draw the pendulum circle
+
+    glBegin(GL_LINES);    // Begin drawing lines
+    glVertex2f(x1,-1*(radius)+0.2);  // Specify the starting point of the line (at the bottom of the clock)
+    glVertex2f(x2,y2);               // Specify the ending point of the line (the tip of the pendulum)
+    glEnd();              // End drawing lines
+}
+
+void display()   // Function to display the scene
+{
+    glClearColor(0,0,0,1);   // Set the clear color for the color buffer (black)
+    glClear(GL_COLOR_BUFFER_BIT);  // Clear the color buffer
+    glLoadIdentity();    // Load the identity matrix to reset transformations
+    glTranslatef(-10,10,-30);  // Translate the scene to a specific position
+    glColor3f(1,1,1);    // Set the color for drawing (white)
+
+    if(angle>315)   // Check if the angle exceeds 315 degrees
+    {
+        angle=315;  // Set the angle to 315 degrees
+        inc=-inc;   // Reverse the increment direction
+    }
+    if(angle<225)   // Check if the angle is less than 225 degrees
+    {
+        angle=225;  // Set the angle to 225 degrees
+        inc=-inc;   // Reverse the increment direction
+    }
+    angle += inc;    // Increment the angle
+    draw(0,0,angle);  // Call the draw function to draw the clock and pendulum
+    glutSwapBuffers();  // Swap the front and back buffers to display the scene
+}
+
+void reshape(int w,int h)   // Function to handle window resizing
+{
+    glMatrixMode (GL_PROJECTION);  // Set the matrix mode to projection
+    glLoadIdentity ();             // Load the identity matrix to reset transformations
+    gluPerspective (100, (GLfloat)w / (GLfloat)h, 0.5, 100.0);  // Set the perspective projection
+    glMatrixMode (GL_MODELVIEW);   // Set the matrix mode back to modelview
+}
+
+int main(int argc, char** argv)   // Main function
+{
+    glutInit(&argc,argv);         // Initialize GLUT
+    glutInitDisplayMode(GLUT_DOUBLE);  // Set the display mode to double buffering
+    glutInitWindowSize(800,600);   // Set the initial window size
+    glutInitWindowPosition(0,0);   // Set the initial window position
+    glutCreateWindow("Assignment 9");  // Create a window with the specified title
+
+    glutDisplayFunc(display);    // Register the display callback function
+    glutIdleFunc(display);       // Register the idle callback function
+    glutReshapeFunc(reshape);    // Register the reshape callback function
+    glutMainLoop();              // Enter the GLUT main event loop
+    return 0;                    // Return 0 to exit the program
+}

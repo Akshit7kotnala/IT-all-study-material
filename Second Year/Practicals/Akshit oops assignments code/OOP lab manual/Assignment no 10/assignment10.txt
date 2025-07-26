@@ -1,0 +1,140 @@
+Car.java
+public interface Car{
+   void gatherParts();
+   void assembleParts();
+   void paintCar();
+   void checkRunning();
+}
+
+Hatchback.java
+public class HatchBack implements Car{
+
+   @Override
+   public void gatherParts() {
+      System.out.println("gathering parts for Hatchback");
+   }
+
+   @Override
+   public void assembleParts() {
+      System.out.println("assembling parts for Hatchback");
+   }
+
+   @Override
+   public void paintCar() {
+      System.out.println("painting the Hatchback");
+   }
+
+   @Override
+   public void checkRunning() {
+      System.out.println("Hatchback is Running : No defects");
+   }
+
+}
+
+Sedan.java
+public class Sedan implements Car{
+
+   @Override
+   public void gatherParts() {
+      System.out.println("gathering parts for Sedan");
+   }
+
+   @Override
+   public void assembleParts() {
+      System.out.println("assembling parts for Sedan");
+   }
+
+   @Override
+   public void paintCar() {
+      System.out.println("painting the Sedan");
+   }
+
+   @Override
+   public void checkRunning() {
+      System.out.println("Sedan is Running : No defects");
+   }
+
+}
+
+SUV.java
+public class SUV implements Car{
+
+   @Override
+   public void gatherParts() {
+      System.out.println("gathering parts for SUV");
+   }
+
+   @Override
+   public void assembleParts() {
+      System.out.println("assembling parts for SUV");
+   }
+
+   @Override
+   public void paintCar() {
+      System.out.println("painting the SUV");
+   }
+
+   @Override
+   public void checkRunning() {
+      System.out.println("SUV is Running : No defects");
+   }
+
+}
+
+CarFactory.java
+public class CarFactory {
+	
+   //use getCar method to get object of type car
+   public Car getCar(String CarType){
+      if(CarType == null){
+         return null;
+      }		
+      if(CarType.equalsIgnoreCase("Hatchback")){
+         return new Hatchback();
+         
+      } else if(shapeType.equalsIgnoreCase("Sedan")){
+         return new Sedan();
+         
+      } else if(CarType.equalsIgnoreCase("SUV")){
+         return new SUV();
+      }
+      
+      return null;
+   }
+}
+
+
+TestFactoryPattern.java
+public class TestFactoryPattern {
+
+   public static void main(String[] args) {
+      CarFactory carFactory = new CarFactory();
+
+      //get an object of Hacthback.
+      Car car1 = carFactory.getCar("Hatchback");
+
+      //call methods of Hatchback
+      car1.gatherParts();
+      car1.assembleParts();
+      car1.paintCar();
+      car1.checkRunning();
+
+      //get an object of Sedan.
+      Car car2 = carFactory.getCar("Sedan");
+
+      //call methods of Sedan
+      car2.gatherParts();
+      car2.assembleParts();
+      car2.paintCar();
+      car2.checkRunning();
+
+      //get an object of SUV.
+      Car car3 = carFactory.getCar("SUV");
+
+      //call methods of SUV
+      car3.gatherParts();
+      car3.assembleParts();
+      car3.paintCar();
+      car3.checkRunning();
+   }
+}

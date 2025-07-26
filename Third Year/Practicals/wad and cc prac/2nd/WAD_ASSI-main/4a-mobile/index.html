@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Mobile Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+      .ui-page {
+        background-color: #f9f9f9;
+      }
+
+      .ui-header,
+      .ui-btn {
+        background-color: #333 !important;
+        color: #fff !important;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Home Page -->
+    <div data-role="page" id="home">
+      <div data-role="header">
+        <h1>My Mobile Site</h1>
+      </div>
+
+      <div role="main" class="ui-content">
+        <p>Welcome to our simple mobile website.</p>
+        <a href="#about" class="ui-btn ui-corner-all">About</a>
+        <a href="#contact" class="ui-btn ui-corner-all">Contact</a>
+
+        <button id="toggleInfo" class="ui-btn ui-corner-all">Toggle Extra Info</button>
+        <div id="extraInfo" class="hidden">
+          <p>This is some extra information that can be toggled.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Page -->
+    <div data-role="page" id="about">
+      <div data-role="header">
+        <a href="#home" data-icon="carat-l">Back</a>
+        <h1>About</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <p>This is the about page of our mobile website.</p>
+      </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div data-role="page" id="contact">
+      <div data-role="header">
+        <a href="#home" data-icon="carat-l">Back</a>
+        <h1>Contact</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <form id="contactForm">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" required />
+
+          <label for="message">Message:</label>
+          <textarea name="message" id="message" required></textarea>
+
+          <input type="submit" value="Send" class="ui-btn ui-corner-all" />
+        </form>
+        <div id="formResult" class="hidden">
+          <p>Thanks for contacting us!</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).on("pagecreate", "#home", function () {
+        $("#toggleInfo").on("click", function () {
+          $("#extraInfo").slideToggle();
+        });
+      });
+
+      $(document).on("submit", "#contactForm", function (e) {
+        e.preventDefault();
+        const name = $("#name").val().trim();
+        const message = $("#message").val().trim();
+
+        if (name && message) {
+          $("#contactForm").hide();
+          $("#formResult").fadeIn();
+        } else {
+          alert("Please fill in all fields.");
+        }
+      });
+    </script>
+  </body>
+</html>

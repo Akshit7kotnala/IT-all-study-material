@@ -1,0 +1,23 @@
+assignment 1
+
+#include<xc.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<p18f4550.h>
+void main (void){
+    int div,mult,sum,sub;
+    div= 0x0C / 0x04;
+    TRISC=0;
+    PORTC=div;
+    sum = 0x0B + 0x04;
+    TRISA=0;
+    PORTA = sum;
+    mult= 0x0A * 0x02;
+    TRISD=0;
+    PORTD=mult;
+    sub= 0x0A - 0x03;
+    TRISB=0;
+}
+//by Akshit Kotnala
+
+https://drive.google.com/drive/folders/1-4sqldAM7ZNH6X6IMRnv2uhuW2O3-6X_?usp=drive_link

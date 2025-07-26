@@ -1,0 +1,25 @@
+assignment no: 5
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <pic18F4550.h>
+
+void delay(unsigned int time){
+	usigned int i,j;
+	for(i=0;i<time;i++){
+		for(j=0;i<5000;j++);
+	}
+}
+
+void main(void){
+	TRISB=0x00;
+	LATB=0xFF;
+	while(1){
+		LATB=~LATB;
+		delay(200);
+	}
+	return;
+}
+
+//BY AKSHIT KOTNALA

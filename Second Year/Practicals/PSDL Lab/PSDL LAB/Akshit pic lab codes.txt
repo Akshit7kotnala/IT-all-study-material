@@ -1,0 +1,230 @@
+Assignment by Akshit 1 :-- Addition of numbers, multiplication , div etc 
+
+
+
+#include<xc.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<pic18f4550.h>
+void main (void){
+ int div,mult,sum,sub;
+ div= 0x0C / 0x04;
+ TRISC=0;
+ PORTC=div;
+ sum = 0x0B + 0x04;
+ TRISA=0;
+ PORTA = sum;
+ mult= 0x0A * 0x02;
+ TRISD=0;
+ PORTD=mult;
+ sub= 0x0A - 0x03;
+ TRISB=0;
+ PORTB = sub;
+}
+
+
+
+
+Assignment by Akshit 2 :-- Addition of nos in array 
+
+
+#include<xc.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<pic18f4550.h>
+void main(void){
+ int s;
+ s=0;
+ int arr[10]={0x03,0x07,0x0C,0x06,0x02,0x04,0x0A,0x05,0x0B,0x01};
+ for(int i=0;i<10;i++){
+ s+=arr[i];
+ }
+ TRISD=0;
+ PORTD=s;
+}
+
+
+
+Assignment by Akshit 3 :--- Ascending and descending 
+
+
+#include<xc.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<pic18f4550.h>
+#include<stdint.h>
+void main (void){
+ int arr[7]={0x02,0x0A,0x05,0x0E,0x04,0x0C,0x08};
+ for(int i=0;i<6;i++){
+ for(int j=i+1;j<7;j++){
+ if(arr[j]<arr[i]){
+ int temp;
+ temp=arr[i];
+ arr[i]=arr[j];
+ arr[j]=temp;
+ }
+ }
+ }
+}
+
+
+
+Assignment by Akshit 4 :--- Memory Transfer 
+
+#include<xc.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<p18f4550.h>
+#include<stdint.h>
+void main (void){
+ int source[7]={0x02,0x0A,0x05,0x0E,0x04,0x0C,0x08};
+ int destination[7]={0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+ for(int i=0;i<7;i++){
+ destination[i]=source[i];
+ }
+}
+
+Assignment by Akshit 5 :-- led and delay 
+
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <pic18F4550.h>
+void delay(unsigned int time){
+unsigned int i,j;
+for(i=0;i<time;i++){
+for(j=0;i<5000;j++);
+}
+}
+void main(void){
+TRISB=0x00;
+LATB=0xFF;
+while(1){
+LATB=~LATB;
+delay(200);
+}
+return;
+}
+
+
+
+Assignment by Akshit 6 :--  buzzer 
+
+
+
+#include <xc.h>
+#include <pic18f4550.h>
+#define Buzzer LATAbits.LATA5 
+unsigned int count = 0;
+void __interrupt(high_priority) Timer1_ISR(void)
+{
+    if (TMR1IF == 1)
+    {
+        TMR1L = 0x20;
+        TMR1H = 0xD1;
+          count++;
+        if (count >= 1000) 
+        {
+            Buzzer = ~Buzzer; 
+            count = 0;       
+        }
+
+        TMR1IF = 0;
+    }
+}
+
+void main()
+{
+    TRISB = 0;             
+    TRISAbits.TRISA5 = 0;  
+    GIE = 1;     
+    PEIE = 1;   
+    TMR1IE = 1;  
+    TMR1IF = 0;  
+    T1CON = 0b00000010; 
+    TMR1L = 0x20; 
+    TMR1H = 0xD1;
+    TMR1ON = 1; 
+
+    while (1);
+}
+
+
+
+
+
+
+Assignment by Akshit 7 :-- relay 
+
+
+
+#include <pic18f4550.h>
+#include <xc.h>
+
+#define RELAY_PIN LATAbits.LATA4
+
+void __interrupt(high_priority) extint_isr(void)
+{
+    unsigned int i;
+    if (INT1F)
+    {
+        INT1F = 0; 
+        INT1IE = 0;
+        RELAY_PIN = ~RELAY_PIN; 
+        // Debouncing delay
+        for (i = 0; i < 10000; i++);
+
+        INT1IE = 1;     }
+}
+
+void main()
+{
+    ADCON1 = 0x0F; 
+    TRISAbits.TRISA4 = 0; 
+    TRISBbits.TRISB1 = 1; 
+    RELAY_PIN = 1; 
+    INT1IE = 1; 
+    INTEDG1 = 0; 
+    GIE = 1; 
+    while (1);
+}
+
+
+
+
+
+Assignment by Akshit 8 :-- motor 
+
+
+#include<xc.h>
+#include<pic18f4550.h>
+unsigned char count=0;
+
+void timer2Init(void){
+ T2CON = 0b00000010;
+ PR2= 0x95;
+}
+void delay(unsigned int time){
+ unsigned int i,j;
+ for(i=0;i<time;i++){
+ for(j=0;j<1000;j++);
+ }
+}
+void main(void){
+ unsigned int i;
+ TRISCbits.TRISC1=0;
+ TRISCbits.TRISC2=0;
+ LATCbits.LATC1=0;
+ CCP1CON=0b00111100;
+ CCPR1L=0x0F;
+ timer2Init();
+ TMR2ON=1;
+ while(1){
+ for(i=15;i<150;i++){
+ CCPR1L=1;
+ delay(100);
+ }
+ for(i=150;i>15;i--){
+ CCPR1L=1; delay(100); }
+ }}

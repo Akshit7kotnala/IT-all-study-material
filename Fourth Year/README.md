@@ -5,3 +5,5 @@ Information Storage and Retrieval UNIT 2 -->> https://tinyurl.com/Akshitisrunit2
 SPM UNIT 1 -->> https://tinyurl.com/Akshitspmunit1
 
 SPM UNIT 2 -->> https://tinyurl.com/Akshitspmunit2
+
+Deep Learning unit 1 -->> https://tinyurl.com/AkshitDeeplearnunit1

@@ -1,6 +1,6 @@
 # 100-Days-Of-ML-Code
 
-100 Days of Machine Learning Coding as proposed by [Siraj Raval](https://github.com/llSourcell)
+100 Days of Machine Learning Coding 
 
 Get the datasets from [here](https://github.com/Akshit7kotnala/IT-all-study-material/tree/main/Placements/Machine%20Learning/Datasets)
 

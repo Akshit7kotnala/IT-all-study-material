@@ -10,4 +10,6 @@ Deep Learning unit 1 -->> https://tinyurl.com/AkshitDeeplearnunit1
 
 Deep Learning unit 2 -->> https://tinyurl.com/Akshitdeeplearnunit2
 
+Smart Computing unit 1 -->> https://tinyurl.com/Akshitsmartunit1
+
 DevOops unit 1 -->> https://tinyurl.com/Akshitdevopsunit1

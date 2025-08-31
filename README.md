@@ -5,7 +5,11 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=akshit7kotnala&label=Profile%20views&color=0e75b6&style=flat" alt="akshit7kotnala" /> </p>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=akshit7kotnala" alt="akshit7kotnala" /></a> </p>
-
+<p align="center">
+  <a href="https://github.com/ryo-ma/github-profile-trophy">
+    <img src="https://github-profile-trophy.vercel.app/?username=akshit7kotnala" alt="Trophies"/>
+  </a>
+</p>
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
 
 - 🌱 I’m currently learning **Spanish**

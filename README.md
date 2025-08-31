@@ -1,5 +1,6 @@
 <h1 align="center">Hi 👋, I'm Akshit Kotnala</h1>
 <h3 align="center">A passionate Software developer from India</h3>
+<a href="https://www.linkedin.com/in/akshit-kotnala/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&style=for-the-badge" alt="LinkedIn"/></a>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=akshit7kotnala&label=Profile%20views&color=0e75b6&style=flat" alt="akshit7kotnala" /> </p>
 

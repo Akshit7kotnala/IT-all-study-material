@@ -1,0 +1,32 @@
+Forest fires are growing more frequent and severe due to climate change, rising temperatures, and human encroachment. These fires threaten biodiversity, human lives, and property, and they often spread faster than authorities can respond. Most existing systems detect fires after they’ve already begun, offering little time for preventive action. To address this, our idea is to build an AI/ML-powered forest fire spread simulation model that can predict how a fire might evolve before it causes irreversible damage.
+
+Our system will use a combination of satellite imagery, weather data (such as wind speed, humidity, and temperature), vegetation indices (like NDVI), and topographic features to forecast the likely direction, speed, and extent of a wildfire. Through spatiotemporal modeling techniques, the platform will simulate the fire’s behavior over time, helping authorities visualize its potential spread in the coming hours or days.
+
+Users will be able to select a region or input geographic coordinates through an intuitive interface. The tool will then display an interactive map showing predicted fire zones, allowing decision-makers to prepare accordingly. This includes planning evacuations, prioritizing vulnerable zones, and efficiently deploying firefighting resources.
+
+By combining geospatial data with machine learning and simulation, we aim to shift wildfire management from reactive to proactive. Our goal is to build a scalable, accessible system that supports real-time forecasting and better disaster response—ultimately minimizing loss to life, nature, and economy.
+
+
+
+
+
+
+
+
+
+Forest fires are becoming more frequent and severe, putting wildlife, forests, nearby communities, and even air quality at serious risk. Right now, most systems that deal with fires are more reactive than proactive — they often struggle to predict how a fire might spread in real-time, especially in areas with complex terrain and changing weather.
+
+Our goal is to build an AI/ML-based simulation tool that can forecast how a forest fire is likely to grow and move. By using satellite imagery, weather data (like wind, temperature, and humidity), and information about vegetation, our model can estimate the direction, speed, and area the fire might impact.
+
+With this, forest departments and emergency teams can act faster and smarter — planning evacuations, deploying resources, and preventing disasters before they escalate.
+
+
+
+
+Programming & ML Frameworks: We're using Python as the core language, along with Scikit-learn, TensorFlow or PyTorch to develop machine learning models that can handle both spatial and temporal data.  Spatiotemporal Modeling: To predict how fire spreads over time and space, we plan to explore models like ConvLSTM, Temporal Fusion Transformers, or sequence-based ML models that are suited for dynamic predictions.  Satellite & Environmental Data: We will be sourcing imagery and data from platforms like Google Earth Engine, MODIS, Sentinel-2, and INSAT, along with reanalysis weather datasets (like ERA5 or NASA POWER) for wind speed, humidity, and temperature.        Geospatial Tools: Tools like GeoPandas, Rasterio, and QGIS will be used to preprocess and visualize spatial data layers, such as land cover, elevation, and vegetation indices (e.g., NDVI).     Optional Web Interface (Prototype phase): If time allows, we may build a simple user-facing tool using Streamlit or Dash, allowing users to visualize fire spread over a map interactively.
+
+
+
+
+
+No, this is not our first hackathon.  We recently participated in the Nomura KakushIN Hackathon, where we developed a web application focused on tide tracking and beach cleanup coordination. Our platform aimed to promote environmental sustainability by helping volunteers find optimal times and locations for beach cleanups based on tide data.  The experience sharpened our problem-solving, teamwork, and time management skills—and showed us how tech can drive real-world impact.

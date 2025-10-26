@@ -1248,7 +1248,7 @@ A **JOIN** combines rows from two or more tables based on a related column (usua
 
 ---
 
-## 🔸 1. INNER JOIN
+ 🔸 1. INNER JOIN
 Returns only students who are enrolled in a course.
 
 ```sql
@@ -1263,6 +1263,7 @@ student_id	name	course
 2	Rahul	SQL
 
 🧠 Neha and Priya not returned because they didn’t match.
+---
 
 ## 🔸 2. LEFT JOIN
 Returns all students, and course info if available.

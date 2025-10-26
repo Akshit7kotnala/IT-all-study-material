@@ -1211,43 +1211,52 @@ What happens when you TRUNCATE a table? Can it be rolled back?
 
 How is TRUNCATE different from DELETE FROM table;?
 
-## SQL JOINS – Deep Dive
-🔗 What is a JOIN?
-A JOIN is used to combine rows from two or more tables based on a related column, typically foreign key = primary key relationship.
+# 🧩 SQL JOINS – Deep Dive
 
-### ✅ Types of SQL Joins
-Type of JOIN	What it returns
-INNER JOIN	Only matching records in both tables
-LEFT JOIN	All records from left + matched from right
-RIGHT JOIN	All records from right + matched from left
-FULL JOIN	All records from both tables (matched or not)
+## 🔗 What is a JOIN?
+A **JOIN** combines rows from two or more tables based on a related column (usually a foreign key = primary key relationship).
 
-📌 Base Tables for Examples
-Let’s assume we have 2 tables:
+---
 
-students
-student_id	name
-1	Akshit
-2	Rahul
-3	Priya
-4	Neha
+## ✅ Types of SQL Joins
 
-enrollments
-enroll_id	student_id	course
-1	1	DSA
-2	2	SQL
-3	5	Java
+| Type of JOIN | What it returns |
+|---------------|----------------|
+| **INNER JOIN** | Only matching records in both tables |
+| **LEFT JOIN** | All records from left + matched from right |
+| **RIGHT JOIN** | All records from right + matched from left |
+| **FULL JOIN** | All records from both tables (matched or not) |
 
-🔸 1. INNER JOIN
-Returns only the students who are enrolled in a course.
+---
 
-sql
-Copy
-Edit
+## 📌 Base Tables for Examples
+
+### `students`
+| student_id | name  |
+|-------------|-------|
+| 1 | Akshit |
+| 2 | Rahul |
+| 3 | Priya |
+| 4 | Neha |
+
+### `enrollments`
+| enroll_id | student_id | course |
+|------------|-------------|--------|
+| 1 | 1 | DSA |
+| 2 | 2 | SQL |
+| 3 | 5 | Java |
+
+---
+
+## 🔸 1. INNER JOIN
+Returns only students who are enrolled in a course.
+
+```sql
 SELECT s.student_id, s.name, e.course
 FROM students s
 INNER JOIN enrollments e
 ON s.student_id = e.student_id;
+
 🔍 Result:
 student_id	name	course
 1	Akshit	DSA
@@ -1255,7 +1264,7 @@ student_id	name	course
 
 🧠 Neha and Priya not returned because they didn’t match.
 
-🔸 2. LEFT JOIN
+## 🔸 2. LEFT JOIN
 Returns all students, and course info if available.
 
 sql

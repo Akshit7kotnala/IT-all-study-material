@@ -15,6 +15,21 @@ https://drive.google.com/drive/folders/1MUOD1J8qTIliezNeTemmV9V4Eo8VSO7l?usp=dri
 
 https://drive.google.com/drive/folders/1Z4vSpwyLRlxI7xpUkcq52n2zMDlYEeBO?usp=drive_link
 
+### Physics notes -->>
+
+https://drive.google.com/file/d/13_eovrh5ZrZ9dUIUxzCueH0YfPob_J_b/view?usp=drive_link
+
+### Chemistry Notes -->>
+
+https://drive.google.com/file/d/131UNtYHHozTxEVjrbNAuReJRHeIqX60y/view?usp=drive_link
+
+### Biology notes -->>
+
+https://drive.google.com/file/d/14tEJru8b-DDlMBx1Huj4g5eQEx-4z3_Y/view?usp=drive_link
+
+#### Akshit special notes -->>
+
+https://drive.google.com/file/d/1AZplHZ8hLm3RZ8a-euufxxwiGBoNeZOD/view?usp=drive_link
  
  ## CDS ENGLISH 
 

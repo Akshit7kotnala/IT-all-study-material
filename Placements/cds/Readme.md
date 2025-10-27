@@ -7,8 +7,13 @@ https://drive.google.com/file/d/1Z3G8jHVZhWvbzTjsI1tS4wSWlTVA0TpA/view?usp=drive
 https://drive.google.com/drive/folders/1MUOD1J8qTIliezNeTemmV9V4Eo8VSO7l?usp=drive_link
 
 ## notes      -->> 
+
  
  https://drive.google.com/drive/folders/1021UoOrPyzrled3stykCWRu2GBYqiXld?usp=drive_link
+
+### Math notes -->>
+
+https://drive.google.com/drive/folders/1Z4vSpwyLRlxI7xpUkcq52n2zMDlYEeBO?usp=drive_link
 
  
  ## CDS ENGLISH 

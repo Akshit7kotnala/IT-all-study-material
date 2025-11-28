@@ -20,6 +20,8 @@ SPM UNIT 4 -->> https://tinyurl.com/Akshitspmunit4
 
 SPM UNIT 5 -->> https://tinyurl.com/Akshitspmunit5
 
+SPM UNIT 6 -->> https://tinyurl.com/Akshitspmunit6
+
 Deep Learning unit 1 -->> https://tinyurl.com/AkshitDeeplearnunit1
 
 Deep Learning unit 2 -->> https://tinyurl.com/Akshitdeeplearnunit2

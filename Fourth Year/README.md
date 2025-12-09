@@ -30,6 +30,14 @@ Smart Computing unit 1 -->> https://tinyurl.com/Akshitsmartunit1
 
 Smart Computing unit 2 -->> https://tinyurl.com/Akshitsmart2
 
+Smart Computing unit 3 -->> https://tinyurl.com/Akshitsmartcomputingunit3
+
+Smart Computing unit 4 -->> https://tinyurl.com/Akshitsmartcomputingunit4
+
+Smart Computing unit 5 -->> https://tinyurl.com/Akshitsmartcomputingunit5
+
+Smart Computing unit 6 -->> https://tinyurl.com/Akshitsmartcomputingunit6
+
 DevOops unit 1 -->> https://tinyurl.com/Akshitdevops1
 
 DevOops unit 2 -->> https://tinyurl.com/Akshitdevops2

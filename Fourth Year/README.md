@@ -26,6 +26,8 @@ Deep Learning unit 1 -->> https://tinyurl.com/AkshitDeeplearnunit1
 
 Deep Learning unit 2 -->> https://tinyurl.com/Akshitdeeplearnunit2
 
+Deep Learning unit 4 -->> https://tinyurl.com/Akshitdeeplearningunit4
+
 Deep Learning unit 5 -->> https://tinyurl.com/Akshitdeeplearnunit5
 
 Deep Learning unit 6 -->> https://tinyurl.com/Akshitdeeplearnunit6

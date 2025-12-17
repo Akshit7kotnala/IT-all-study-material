@@ -26,6 +26,8 @@ Deep Learning unit 1 -->> https://tinyurl.com/AkshitDeeplearnunit1
 
 Deep Learning unit 2 -->> https://tinyurl.com/Akshitdeeplearnunit2
 
+Deep Learning unit 3 -->> https://chatgpt.com/share/6941ffde-83a8-8006-a3c5-ceb5b10c6b0a
+
 Deep Learning unit 4 -->> https://tinyurl.com/Akshitdeeplearningunit4
 
 Deep Learning unit 5 -->> https://tinyurl.com/Akshitdeeplearnunit5

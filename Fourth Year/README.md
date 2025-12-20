@@ -49,3 +49,5 @@ Smart Computing unit 6 -->> https://tinyurl.com/Akshitsmartcomputingunit6
 DevOops unit 1 -->> https://tinyurl.com/Akshitdevops1
 
 DevOops unit 2 -->> https://tinyurl.com/Akshitdevops2
+
+DevOops unit 6 -->> https://tinyurl.com/Akshitdevops6

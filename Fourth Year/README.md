@@ -44,7 +44,7 @@ Smart Computing unit 4 -->> https://tinyurl.com/Akshitsmartcomputingunit4
 
 Smart Computing unit 5 -->> https://tinyurl.com/Akshitsmartcomputingunit5
 
-Smart Computing unit 6 -->> https://tinyurl.com/Akshitsmartcomputingunit6
+Smart Computing unit 6 -->> https://tinyurl.com/Akshitspm6
 
 DevOops unit 1 -->> https://tinyurl.com/Akshitdevops1
 

@@ -40,7 +40,7 @@ Smart Computing unit 2 -->> https://tinyurl.com/Akshitsmart2
 
 Smart Computing unit 3 -->> https://tinyurl.com/Akshitsmartcomputingunit3
 
-Smart Computing unit 4 -->> https://tinyurl.com/Akshitsmartcomputingunit4
+Smart Computing unit 4 -->> https://tinyurl.com/Akshitsc4
 
 Smart Computing unit 5 -->> https://tinyurl.com/Akshitsmartcomputingunit5
 
